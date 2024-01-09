@@ -70,6 +70,8 @@ At the end of the term, your repositories on the [CPSC-1517 GitHub Organization]
 
 ## ![Software et.al.](./docs/images/code.png) Software & Resources
 
+> *Sign up for the [GitHub Classroom Student Pack](https://education.github.com/pack).*
+
 Required tools for this course include:
 
 - **.NET SDKs**
