@@ -13,6 +13,11 @@
 ## Jan 9
 
 - [ ] Git & Markdown
+  - [000](./src/000/ReadMe.md)
+  - [001](./src/001-StartHere/ReadMe.md)
+  - Walk through Projects and Solutions (see Rnd/ReadMe)
+- [ ] **Homework!** :100:
+  - [002](./src/002/ReadMe.md)
 
 ## Jan 11
 
