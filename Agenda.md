@@ -9,6 +9,10 @@
 ## Jan 8 (W1)
 
 - [x] Course Introduction
+- [x] Create student workbook(s)
+- [x] Install CLI tools (git, gh, node)
+- [x] Install editor (vscode)
+- [ ] Learn some DOS commands?
 
 ## Jan 9
 
@@ -21,4 +25,7 @@
 
 ## Jan 11
 
-- [ ] Git & Markdown
+- [ ] Lot's of Lectures!
+  - **What is a Computer Program**
+- [ ] **Homework!**
+  - My TLP tutorials
