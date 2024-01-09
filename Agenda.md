@@ -33,19 +33,17 @@
     pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/002 ./src/002
     ```
 
-- [ ] Git & Markdown
+- [x] Git & Markdown
   - [000](./src/000/ReadMe.md)
   - Add/Commit/Push - [**The Routine**](./docs/TheRoutine.md)
   - :+1: Student Name in [README.md](README.md)
   - [001- Start Here](./src/001-StartHere/ReadMe.md)
-- [ ] **Homework!** :100:
+- [x] **Homework!** :100:
   - [002](./src/002/ReadMe.md)
   - Assignments on MS Teams:
     - About Me
     - GitDoc Usage
     - GitDoc Typing Profile
-  - Readings:
-  - Videos:
 
 ## Jan 11
 
