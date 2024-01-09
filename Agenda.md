@@ -18,6 +18,8 @@
 
 - [ ] Git & Markdown
   - [000](./src/000/ReadMe.md)
+  - Add/Commit/Push - [**The Routine**](./docs/TheRoutine.md)
+  - :+1: Student Name in [README.md](README.md)
   - [001](./src/001-StartHere/ReadMe.md)
   - Walk through Projects and Solutions (see Rnd/ReadMe)
 - [ ] **Homework!** :100:
