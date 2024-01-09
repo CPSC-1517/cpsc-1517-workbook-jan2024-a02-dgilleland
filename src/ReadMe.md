@@ -1,5 +1,7 @@
 # Demos, Tutorials and Practice Materials
 
+[Jump to the list of Workbook Demos](#workbook-demos)
+
 > You are encouraged to treat this folder as a **working directory** for demos, tutorials and practice assignments.
 >
 > :warning: **Do *NOT*** use this repository for any assignments that are worth marks. :warning:
@@ -46,3 +48,14 @@ There are three things you must continually master as you go through your IT car
 - Know the **problem** you are trying to solve
 - Know your **programming language** and environment
 - Know your **tools**
+
+----
+
+## Workbook Demos
+
+- 000 - Course Introduction
+- 001 - VS Code, the Terminal, and Markdown
+- 002 - More Markdown
+- 003 - Intro to C# in VS Code: Projects and Solutions
+- 004 - Top-Level Programs
+- 005 - 

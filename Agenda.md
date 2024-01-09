@@ -16,14 +16,33 @@
 
 ## Jan 9
 
+- [ ] Grabbing the Demos:
+  
+    ```ps
+    # Ensure your terminal is open at the ROOT of your workbook!
+    npx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/000 ./src/000
+    ```
+  
+    ```ps
+    # Ensure your terminal is open at the ROOT of your workbook!
+    npx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/001-StartHere ./src/001-StartHere
+    ```
+  
+    ```ps
+    # Ensure your terminal is open at the ROOT of your workbook!
+    npx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/002 ./src/002
+    ```
+
 - [ ] Git & Markdown
   - [000](./src/000/ReadMe.md)
   - Add/Commit/Push - [**The Routine**](./docs/TheRoutine.md)
   - :+1: Student Name in [README.md](README.md)
-  - [001](./src/001-StartHere/ReadMe.md)
-  - Walk through Projects and Solutions (see Rnd/ReadMe)
+  - [001- Start Here](./src/001-StartHere/ReadMe.md)
+- [ ] Walk through on Projects and Solutions (see Rnd/ReadMe)
 - [ ] **Homework!** :100:
   - [002](./src/002/ReadMe.md)
+  - Readings:
+  - Videos:
 
 ## Jan 11
 

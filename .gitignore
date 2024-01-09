@@ -20,6 +20,7 @@
 # Instructor Patches and custom tools
 
 CPSC-1517-Workbook.sln
+1517-A02-Instructor.sln
 [Ww]orkbook*.patch
 .snag  # Snag-It files
 .cr/   # Code-Rush
