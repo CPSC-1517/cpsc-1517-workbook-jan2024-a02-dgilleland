@@ -16,7 +16,7 @@
 
 ## Jan 9
 
-- [ ] Grabbing the Demos:
+- [ ] Grabbing the Demos (you will need to have Node and [pnpm](https://pnpm.io/installation) installed):
   
     ```ps
     # Ensure your terminal is open at the ROOT of your workbook!
@@ -25,12 +25,12 @@
   
     ```ps
     # Ensure your terminal is open at the ROOT of your workbook!
-    npx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/001-StartHere ./src/001-StartHere
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/001-StartHere ./src/001-StartHere
     ```
   
     ```ps
     # Ensure your terminal is open at the ROOT of your workbook!
-    npx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/002 ./src/002
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/002 ./src/002
     ```
 
 - [ ] Git & Markdown
