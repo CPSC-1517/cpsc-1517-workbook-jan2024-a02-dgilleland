@@ -41,6 +41,10 @@
 - [ ] Walk through on Projects and Solutions (see Rnd/ReadMe)
 - [ ] **Homework!** :100:
   - [002](./src/002/ReadMe.md)
+  - Assignments on MS Teams:
+    - About Me
+    - GitDoc Usage
+    - GitDoc Typing Profile
   - Readings:
   - Videos:
 
