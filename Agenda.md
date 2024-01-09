@@ -12,7 +12,7 @@
 - [x] Create student workbook(s)
 - [x] Install CLI tools (git, gh, node)
 - [x] Install editor (vscode)
-- [ ] Learn some DOS commands?
+- [x] Learn some DOS commands
 
 ## Jan 9
 
@@ -38,7 +38,6 @@
   - Add/Commit/Push - [**The Routine**](./docs/TheRoutine.md)
   - :+1: Student Name in [README.md](README.md)
   - [001- Start Here](./src/001-StartHere/ReadMe.md)
-- [ ] Walk through on Projects and Solutions (see Rnd/ReadMe)
 - [ ] **Homework!** :100:
   - [002](./src/002/ReadMe.md)
   - Assignments on MS Teams:
@@ -52,5 +51,8 @@
 
 - [ ] Lot's of Lectures!
   - **What is a Computer Program**
+- [ ] Walk through on Projects and Solutions (see Rnd/ReadMe)
 - [ ] **Homework!**
   - My TLP tutorials
+  - Readings:
+  - Videos:
