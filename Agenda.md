@@ -20,7 +20,7 @@
   
     ```ps
     # Ensure your terminal is open at the ROOT of your workbook!
-    npx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/000 ./src/000
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/000 ./src/000
     ```
   
     ```ps
