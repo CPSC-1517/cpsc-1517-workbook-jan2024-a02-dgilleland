@@ -67,6 +67,17 @@
 
 1. Now, it's time to run the project: Type `dotnet run`.
 
+#### Setting Up a Multi-Root Workspace
+
+> Because we are using multiple solutions inside of our repository, it's best to keep them distinct in terms of the settings needed for running the solutions. To do this, we will work with multi-root workspaces.
+>
+> For more information, read the following:
+>
+> - [VS Code IDE and Workspaces](https://code.visualstudio.com/docs/editor/workspaces)
+> - Multiple solutions in a single repository are easier to manage with [Multi-Root Workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in VS Code.
+
+In VS Code, select *"Save Workspace As..."* from the *File* menu to prepare your workbook for workspaces. Then, select *"Add Folder to Workspace..."* from the *File* menu and add in the `~/src/003/` folder. Make note of how that affects the appearance of the repository in the Explorer view.
+
 #### Adding in some parameters to your console app
 
 - [ ] In the main function, loop through and list the args that were passed in. If none were passed in (`args.Length == 0`), then display an appropriate message.

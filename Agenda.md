@@ -61,7 +61,7 @@
       - Web
       - Others: (scheduled jobs, server apps, edge applications, etc.)
 - [ ] Walk through on Projects and Solutions (see Rnd/ReadMe)
-  - Create the file `~src/003/TODO.md` and add some content (*anything*)
+  - Create the file `~/src/003/TODO.md` and add some content (*anything*)
   - Run the following code
 
     ```ps
@@ -71,6 +71,7 @@
 - [ ] **Homework!**
   - My TLP tutorials
   - Readings:
+    - VS Code [**User Interface**](https://code.visualstudio.com/docs/getstarted/userinterface)
     - [Working with C# in VS Code](https://code.visualstudio.com/docs/languages/csharp)
     - [Working with .NET and VS Code](https://code.visualstudio.com/docs/languages/dotnet)
     - [Getting Started with C# in VS Code](https://code.visualstudio.com/docs/csharp/get-started)
