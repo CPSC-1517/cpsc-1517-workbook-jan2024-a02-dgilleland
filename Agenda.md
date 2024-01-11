@@ -53,8 +53,13 @@
   - GitDoc Typing Profile
 - [ ] Lot's of Lectures!
   - **What is a Computer Program**
-    - *Dfn*
+    - *A computer program is a **set of instructions** for manipulating **information**.*
     - Information: Primitve Types & Complex Types
+      - Primitive types: Textual, Numeric, Conceptual
+      - Complex types: Classes (`class`), `struct`, `record`
+        - A class is a blueprint for creating objects.
+        - It describes what an object will *look like* and how it will *behave*.
+        - `class` is made up of fields, properties, methods and constructors.
     - Kinds of programs:
       - CLI (console w. UI)
       - Desktop
