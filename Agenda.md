@@ -47,10 +47,32 @@
 
 ## Jan 11
 
+- [ ] Comments/Demo of Practice Assignments
+  - About Me
+  - GitDoc Usage
+  - GitDoc Typing Profile
 - [ ] Lot's of Lectures!
   - **What is a Computer Program**
+    - *Dfn*
+    - Information: Primitve Types & Complex Types
+    - Kinds of programs:
+      - CLI (console w. UI)
+      - Desktop
+      - Web
+      - Others: (scheduled jobs, server apps, edge applications, etc.)
 - [ ] Walk through on Projects and Solutions (see Rnd/ReadMe)
+  - Create the file `~src/003/TODO.md` and add some content (*anything*)
+  - Run the following code
+
+    ```ps
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/003 ./src/003
+    ```
+
 - [ ] **Homework!**
   - My TLP tutorials
   - Readings:
+    - [Working with C# in VS Code](https://code.visualstudio.com/docs/languages/csharp)
+    - [Working with .NET and VS Code](https://code.visualstudio.com/docs/languages/dotnet)
+    - [Getting Started with C# in VS Code](https://code.visualstudio.com/docs/csharp/get-started)
   - Videos:
+    - [Intro Videos on C# and VS Code](https://code.visualstudio.com/docs/csharp/introvideos-csharp)
