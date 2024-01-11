@@ -3,6 +3,7 @@
 *At the end of this lesson, you should be able to...*
 
 - [ ] Explain the concept and structure of a C# Project in .NET Core
+- [ ] List the primary types of projects in this latest version of .NET Core
 - [ ] Explain the concept and purpose of a solution file
 - [ ] Explain why we keep projects separate from each other
 - [ ] Describe the best place to put the solution file?
