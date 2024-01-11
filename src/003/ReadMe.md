@@ -46,8 +46,8 @@
 1. Let's try those commands again, but without the `--dry-run` option.
 
     ```ps
-    dotnet new console -o src/003/HelloWorld -n App
-    dotnet new sln -o src/003/ -n MyApp --use-program-main
+    dotnet new console -o src/003/HelloWorld -n App --use-program-main
+    dotnet new sln -o src/003/ -n MyApp
     ```
 
    Take some time to examine the contents of the `App.csproj` and `MyApp.sln` files. Notice we added another flag: `--use-program-main`. What do you think this does?
