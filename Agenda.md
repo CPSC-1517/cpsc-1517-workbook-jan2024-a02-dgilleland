@@ -66,7 +66,6 @@
       - Web
       - Others: (scheduled jobs, server apps, edge applications, etc.)
 - [ ] Walk through on Projects and Solutions (see Rnd/ReadMe)
-  - Create the file `~/src/003/TODO.md` and add some content (*anything*)
   - Run the following code
 
     ```ps
@@ -86,6 +85,7 @@
 
 ## Jan 15 (W2)
 
+- [ ] Resume/complete the *HelloWorld* app from [003](./src/003/ReadMe.md)
 - [ ] **Homework!**
   - My TLP tutorials
 
