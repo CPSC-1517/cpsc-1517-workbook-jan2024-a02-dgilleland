@@ -69,7 +69,6 @@
     ```
 
 - [ ] **Homework!**
-  - My TLP tutorials
   - Readings:
     - VS Code [**User Interface**](https://code.visualstudio.com/docs/getstarted/userinterface)
     - [Working with C# in VS Code](https://code.visualstudio.com/docs/languages/csharp)
@@ -77,3 +76,24 @@
     - [Getting Started with C# in VS Code](https://code.visualstudio.com/docs/csharp/get-started)
   - Videos:
     - [Intro Videos on C# and VS Code](https://code.visualstudio.com/docs/csharp/introvideos-csharp)
+
+----
+
+## Jan 15 (W2)
+
+- [ ] **Homework!**
+  - My TLP tutorials
+
+## Jan 16
+
+## Jan 18
+
+----
+
+## Jan 22 (W3)
+
+## Jan 23
+
+## Jan 25
+
+----
