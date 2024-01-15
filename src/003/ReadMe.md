@@ -65,7 +65,7 @@
    1. Type `dotnet build` in the terminal.
    1. Re-examine the files/folders inside `HelloWorld`. What changed?
 
-1. Now, it's time to run the project: Type `dotnet run`.
+1. Now, it's time to run the project: Change into the `HelloWorld` folder and type `dotnet run`.
 
 #### Setting Up a Multi-Root Workspace
 
@@ -77,6 +77,15 @@
 > - Multiple solutions in a single repository are easier to manage with [Multi-Root Workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in VS Code.
 
 In VS Code, select *"Save Workspace As..."* from the *File* menu to prepare your workbook for workspaces. Then, select *"Add Folder to Workspace..."* from the *File* menu and add in the `~/src/003/` folder. Make note of how that affects the appearance of the repository in the Explorer view.
+
+> The code-workspace file is ignored in your workbook. You will need to force-add the file to your code history.
+> 
+> ```ps
+> # From the perspective of the root of the student workbook
+> git add ./src/A02-CPSC-1517.code-workspace --force
+> git commit -m "Force-add code workspace"
+> ```
+
 
 #### Adding in some parameters to your console app
 
