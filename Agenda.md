@@ -86,6 +86,13 @@
 ## Jan 15 (W2)
 
 - [ ] Resume/complete the *HelloWorld* app from [003](./src/003/ReadMe.md)
+- [ ] Force-commit the `.code-workspace`
+
+    ```ps
+    git add ./src/A02-CPSC-1517.code-workspace --force
+    git commit -m "Force-add code workspace"
+    ```
+
 - [ ] Transition to the [004](./src/004/ReadMe.md) demo and intro to TDD
 
     ```ps
