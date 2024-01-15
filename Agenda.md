@@ -86,10 +86,16 @@
 ## Jan 15 (W2)
 
 - [ ] Resume/complete the *HelloWorld* app from [003](./src/003/ReadMe.md)
-- [ ] **Homework!**
-  - My TLP tutorials
+- [ ] Transition to the [004](./src/004/ReadMe.md) demo and intro to TDD
+
+    ```ps
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/004 ./src/004
+    ```
 
 ## Jan 16
+
+- [ ] **Homework!**
+  - My TLP tutorials
 
 ## Jan 18
 
