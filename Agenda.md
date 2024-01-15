@@ -93,7 +93,7 @@
     git commit -m "Force-add code workspace"
     ```
 
-- [ ] Transition to the [004](./src/004/ReadMe.md) demo and intro to TDD
+- [ ] Transition to the [004](./src/004/ReadMe.md) demo and start the intro to TLPs and TDD. Remember to add a workspace folder for 004.
 
     ```ps
     pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/004 ./src/004
