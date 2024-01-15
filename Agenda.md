@@ -85,7 +85,7 @@
 
 ## Jan 15 (W2)
 
-- [ ] Resume/complete the *HelloWorld* app from [003](./src/003/ReadMe.md)
+- [ ] Resume/complete the *HelloWorld* app from [003](./src/003/ReadMe.md) (Step 8)
 - [ ] Force-commit the `.code-workspace`
 
     ```ps
