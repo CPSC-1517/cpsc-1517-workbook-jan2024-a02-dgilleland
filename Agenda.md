@@ -101,17 +101,31 @@
 
 ## Jan 16
 
+- [ ] Resume **WindChill** demo
+  - [ ] version 1 - with unit tests and simple primitive class members
 - [ ] **Homework!**
   - My TLP tutorials
 
 ## Jan 18
 
+- [ ] Resume **WindChill** demo
+  - [ ] version 2 - with unit tests and simple primitive class members
+
 ----
 
 ## Jan 22 (W3)
 
+- [ ] Resume **WindChill** demo
+  - [ ] version 3 - with unit tests and simple primitive class members
+
 ## Jan 23
 
+- [ ] Demo **Fraction**
+  - [ ] version 1 - create unit tests
+
 ## Jan 25
+
+- [ ] Demo **Fraction**
+  - [ ] version 1 - create unit tests
 
 ----
