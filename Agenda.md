@@ -127,5 +127,6 @@
 
 - [ ] Demo **Fraction**
   - [ ] version 1 - create unit tests
+- [ ] **Tip:** *Don't force abstractions by rushing to create complex data types. Begin with classes/records that have intrinsic primitive types"
 
 ----
