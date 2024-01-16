@@ -1,6 +1,6 @@
 # Agenda
 
-> These are my notes on what I plan to teach in each [**upcoming class**](#jan-15-w2). For the timeline of where we are today, see [the current schedule](./README.md#schedule).
+> These are my notes on what I plan to teach in each [**upcoming class**](#jan-18). For the timeline of where we are today, see [the current schedule](./README.md#schedule).
 >
 > ##### *... Warn those who are idle ..., encourage the disheartened, help the weak, be patient with everyone.*
 >
@@ -103,25 +103,25 @@
 
 - [ ] Resume **WindChill** demo
   - [ ] version 1 - with unit tests and simple primitive class members
-- [ ] **Homework!**
-  - My TLP tutorials
 
 ## Jan 18
 
 - [ ] Resume **WindChill** demo
-  - [ ] version 2 - with unit tests and simple primitive class members
+- [ ] **Homework!**
+  - [ ] In VS Code: *Help -> Welcome*, then follow the "Get Started with C# DevKit"
+  - [ ] My TLP tutorials
 
 ----
 
 ## Jan 22 (W3)
 
 - [ ] Resume **WindChill** demo
-  - [ ] version 3 - with unit tests and simple primitive class members
+  - [ ] version 2 - with unit tests and simple primitive class members
 
 ## Jan 23
 
-- [ ] Demo **Fraction**
-  - [ ] version 1 - create unit tests
+- [ ] Resume **WindChill** demo
+  - [ ] version 3 - with unit tests and simple primitive class members
 
 ## Jan 25
 
