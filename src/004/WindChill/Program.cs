@@ -23,6 +23,8 @@ else
     exitCode = ProcessError("Invalid arguments.");
     ShowHelp();
 }
+
+
 return exitCode;
 
 int ProcessError(string message)
