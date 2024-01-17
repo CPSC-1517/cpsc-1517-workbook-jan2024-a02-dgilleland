@@ -50,4 +50,25 @@ public class WindChill_Should
         // Assert
         // actual.Should().Be(expected);
     }
+
+    [Fact(Skip = "Demo In Class")]
+    public void Represent_WindChill_As_Text()
+    {
+        string expected = $"-10{'\u00B0'}C at 20km/h feels like -17.855{'\u00B0'}C";
+    }
+
+    [Fact(Skip = "Demo In Class")]
+    public void Reject_Temperature_Above_Freezing() {}    
+
+    [Fact(Skip = "Demo In Class")]
+    public void Reject_WindSpeed_Below_10kph() {}
+    
+    [Fact(Skip = "Demo In Class")]
+    public void Reject_WindSpeed_Over_70kph() {}
+    
+    [Fact(Skip = "Demo In Class")]
+    public void Represent_Temperature_As_Farenhiet() {}    
+    
+    [Fact(Skip = "Demo In Class")]
+    public void Represent_WindSpeed_As_MilesPerHour() {}
 }
