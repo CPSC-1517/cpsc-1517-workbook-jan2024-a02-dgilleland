@@ -106,6 +106,7 @@
 
 ## Jan 18
 
+- [ ] Discuss the Take-Home Lab Exercises
 - [ ] Resume **WindChill** demo
 - [ ] **Homework!**
   - [ ] In VS Code: *Help -> Welcome*, then follow the "Get Started with C# DevKit"
