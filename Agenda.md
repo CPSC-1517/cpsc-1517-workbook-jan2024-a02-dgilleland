@@ -112,7 +112,7 @@
 - [ ] Resume **WindChill** demo
 - [ ] **Homework!**
   - [ ] In VS Code: *Help -> Welcome*, then follow the "Get Started with C# DevKit"
-  - [ ] My TLP tutorials
+  - [ ] Review the [Simplified C# Grammar](https://programming-0101.github.io/TheBook/Teach/chapter1-7.html)
 
 ----
 
