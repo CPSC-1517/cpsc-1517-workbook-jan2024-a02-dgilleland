@@ -11,6 +11,7 @@
 		}
 	],
 	"settings": {
-		"markdown.extension.orderedList.autoRenumber": true
+		"markdown.extension.orderedList.autoRenumber": true,
+		"editor.codeLens": false
 	}
 }
