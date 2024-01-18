@@ -1,5 +1,5 @@
 namespace WindChill.Specs;
-
+// `ctrl` + `;` + `a`
 public class WindChill_Should
 {
     [Fact] // Annotation that identifies this as a test
@@ -17,7 +17,7 @@ public class WindChill_Should
         sut.WindSpeed.Should().Be(givenWind);
     }
 
-    [Fact(Skip = "Demo In Class")]
+    [Fact]
     public void Use_Celsius_If_Not_Specified()
     {
         // Arrange
@@ -28,33 +28,39 @@ public class WindChill_Should
         actual.Should().Be('C');
     }
 
-    [Fact(Skip = "Demo In Class; Comment in the code")]
+    [Fact]
     public void Use_KmPerHour_If_Not_Specified()
     {
         // Arrange
         WindChill sut = new(-10, 20);
         // Act
-        // string actual = sut.WindSpeedUnits;
+        string actual = sut.WindSpeedUnits;
         // Assert
-        // actual.Should().Be("km/h");
+        actual.Should().Be("km/h");
     }
 
-    [Fact(Skip = "Demo In Class")]
+    [Fact]
     public void Calculate_Wind_Chill_Using_Default_Units()
     {
         // Arrange
         WindChill sut = new(-10, 20);
         double expected = -17.855; // From our table of test data
         // Act
-        // var actual = sut.FeelsLike;
+        var actual = sut.FeelsLike;
         // Assert
-        // actual.Should().Be(expected);
+        actual.Should().Be(expected);
     }
 
-    [Fact(Skip = "Demo In Class")]
+    [Fact]
     public void Represent_WindChill_As_Text()
     {
+        // Arrange
         string expected = $"-10{'\u00B0'}C at 20km/h feels like -17.855{'\u00B0'}C";
+        var sut = new WindChill(-10, 20);
+        // Act
+        string actual = sut.ToString();
+        // Assert
+        actual.Should().Be(expected);
     }
 
     [Fact(Skip = "Demo In Class")]
