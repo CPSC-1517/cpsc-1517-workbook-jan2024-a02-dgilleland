@@ -106,6 +106,9 @@
 
 ## Jan 18
 
+> "7H3 M345UR3 OF 1N73LL163NC3 15 7H3 481L17Y 70 CH4N63" - 4l83r7 31n5731n
+
+- [ ] Discuss the Take-Home Lab Exercises
 - [ ] Resume **WindChill** demo
 - [ ] **Homework!**
   - [ ] In VS Code: *Help -> Welcome*, then follow the "Get Started with C# DevKit"
