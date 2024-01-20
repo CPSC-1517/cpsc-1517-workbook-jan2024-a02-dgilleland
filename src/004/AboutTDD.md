@@ -243,7 +243,7 @@ Additionally, we need to deal with the English units of °F and m/h. We could ha
 | :--: | :--: | :--: |
 | 32 | 10 | 23.7 |
 
-### Our First Test
+### Handling English Units
 
 ```cs
 public void Represent_Temperature_As_Farenhiet()
@@ -278,6 +278,19 @@ public void Represent_WindSpeed_As_MilesPerHour()
     actualWindChill.Should().Be(expected);
 }
 ```
+
+
 ### What's Missing
 
 We've been able to get our calculations for the units to work well for both Metric and English units. But there's a few "shortcuts" we've taken by having our overloaded constructor skip the properties and going directly to the fields used as the backstore. It's time to fix that.
+
+Before we continue to the unit tests, let's revisit our test data and formally introduce some data for invalid results.
+
+| Air Temp (°C) | Wind Speed (km/h) | Wind Chill |
+| :--: | :--: | :--: |
+| -10 | 20 | -17.9 |
+
+| Air Temp (°F) | Wind Speed (m/h) | Wind Chill |
+| :--: | :--: | :--: |
+| 32 | 10 | 23.7 |
+
