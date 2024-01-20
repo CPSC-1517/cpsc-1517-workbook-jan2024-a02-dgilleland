@@ -112,7 +112,122 @@ We might also want to think about how our driver is going to be handling our cla
 
 Writing automated tests is a bit of a skill. It's not hard, but it does take some practice. Usually, the best practice is to get exposed to reading tests before you start writing your own. Yes, you'll do the "coding", but for now, I'll be providing the tests for you to write. *Your* job will be to write the code that makes the tests pass!
 
-### Our Final Calculation
+### Our First Test
+
+```cs
+[Fact] // Annotation that identifies this as a test
+public void Construct_With_AirTemperature_And_WindSpeed()
+{
+    // Arrange - Setup our test condition
+    double givenTemp = -10, givenWind = 20;
+
+    // Act - What it is that we are testing
+    // - sut - System Under Test
+    WindChill sut = new(givenTemp, givenWind);
+
+    // Assert - Does it do what it should
+    sut.AirTemperature.Should().Be(givenTemp);
+    sut.WindSpeed.Should().Be(givenWind);
+}
+```
+
+### Ensuring Default Units
+
+```cs
+[Fact]
+public void Use_Celsius_If_Not_Specified()
+{
+    // Arrange
+    WindChill sut = new(-10, 20);
+    // Act
+    var actual = sut.TemperatureUnits;
+    // Assert
+    actual.Should().Be('C');
+}
+```
+
+```cs
+[Fact]
+public void Use_KmPerHour_If_Not_Specified()
+{
+    // Arrange
+    WindChill sut = new(-10, 20);
+    // Act
+    string actual = sut.WindSpeedUnits;
+    // Assert
+    actual.Should().Be("km/h");
+}
+```
+
+### What it Feels Like
+
+```cs
+[Fact]
+public void Calculate_Wind_Chill_Using_Default_Units()
+{
+    // Arrange
+    WindChill sut = new(-10, 20);
+    double expected = -17.855; // From our table of test data
+    // Act
+    var actual = sut.FeelsLike;
+    // Assert
+    actual.Should().Be(expected);
+}
+```
+
+```cs
+[Fact]
+public void Represent_WindChill_As_Text()
+{
+    // Arrange
+    string expected = $"-10{'\u00B0'}C at 20km/h feels like -17.855{'\u00B0'}C";
+    var sut = new WindChill(-10, 20);
+    // Act
+    string actual = sut.ToString();
+    // Assert
+    actual.Should().Be(expected);
+}
+```
+
+### Validating Input
+
+```cs
+[Fact]
+public void Reject_Temperature_Above_Freezing()
+{
+    // Arrange
+    Action act = () => new WindChill(1, 20);
+    // Act
+    // Assert
+    act.Should().Throw<ArgumentOutOfRangeException>();
+}
+```
+
+```cs
+[Fact]
+public void Reject_WindSpeed_Below_10kph()
+{
+    // Arrange
+    Action act = () => new WindChill(0, 9.99999);
+    // Act
+    // Assert
+    act.Should().Throw<ArgumentOutOfRangeException>().WithMessage("*Wind speeds below 10 kph are not allowed*");
+}
+```
+
+```cs
+[Fact]
+public void Reject_WindSpeed_Over_70kph()
+{
+    // Arrange
+    Action act = () => new WindChill(0, 71);
+    // Act
+    // Assert
+    act.Should().Throw<ArgumentOutOfRangeException>().WithMessage("*Wind speeds above 70 kph are not allowed*");
+}
+```
+
+### Time for Real Math
 
 It's time to get a little more serious about our calculations of the wind speeds.
 
@@ -128,103 +243,41 @@ Additionally, we need to deal with the English units of °F and m/h. We could ha
 | :--: | :--: | :--: |
 | 32 | 10 | 23.7 |
 
+### Our First Test
 
+```cs
+public void Represent_Temperature_As_Farenhiet()
+{
+    // Arrange
+    WindChill sut = new(32, 'F', 10, "m/h");
+    string expected = $"32{'\u00B0'}F at 10m/h feels like 23.7{'\u00B0'}F";
+
+    // Act
+    var actual = sut.FeelsLike;
+    var actualUnits = sut.TemperatureUnits;
+    var actualWindChill = sut.ToString();
+    // Assert
+    actual.Should().Be(23.7);
+    actualUnits.Should().Be('F');
+    actualWindChill.Should().Be(expected);
+}
+```
+
+```cs
+[Fact]
+public void Represent_WindSpeed_As_MilesPerHour()
+{
+    // Arrange
+    WindChill sut = new(32, 'F', 10, "m/h");
+    string expected = $"32{'\u00B0'}F at 10m/h feels like 23.7{'\u00B0'}F";
+    // Act
+    var actualUnits = sut.WindSpeedUnits;
+    var actualWindChill = sut.ToString();
+    // Assert
+    actualUnits.Should().Be("m/h");
+    actualWindChill.Should().Be(expected);
+}
+```
 ### What's Missing
 
 We've been able to get our calculations for the units to work well for both Metric and English units. But there's a few "shortcuts" we've taken by having our overloaded constructor skip the properties and going directly to the fields used as the backstore. It's time to fix that.
-
-----
-
-## Appendix
-
-### `WindChill_Should.cs`
-
-Here's the complete code for the `WindChill_Should` class.
-
-```cs
-```
-
-### `WindChill.cs`
-
-Here's the complete code for the `WindChill` class.
-
-```cs
-```
-
-
-----
-
-----
-
-# TEMP
-
-```cs
-// Using statements must be at the top of the file
-using System;
-using static System.Console; // so we can use Console.WriteLine() as WriteLine()
-
-// The body of the Main method is the next item in the file
-WriteLine("Hello Wind Chill!");
-// TODO: Add code to parse the arguments and calculate the wind chill
-// For now, we'll just exit with a code of 0
-return 0;
-
-// Members of the class (fields, properties, and methods) are to be placed after the body of the Main method
-// Fields
-public static const double FreezingPointCelsius = 0.0;
-private static double _TemperatureCelcius;
-private static double _WindSpeedKmH;
-
-public static double WindChill { get; private set; }
-public static char Units { get; private set; } // 'F' or 'C'
-
-// Methods
-public static double ConvertToFarhenheit(double temperatureCelcius)
-{
-    return temperatureCelcius * 9 / 5 + 32;
-}
-public static double ConvertToCelsius(double temperatureFahrenheit)
-{
-    return (temperatureFahrenheit - 32) * 5 / 9;
-}
-public static double ConvertToMilesPerHour(double windSpeedKmH)
-{
-    return windSpeedKmH / 1.609344;
-}
-public static void CalculateWindChill()
-{
-    // Based on fields/properties, this will set the WindChill property
-    // Assuming that _TemperatureCelcius and _WindSpeedKmH have been set
-    // first, calculating the results in Celsius
-    double windChillCelsius = 13.12 + 0.6215 * _TemperatureCelcius - 11.37 * Math.Pow(_WindSpeedKmH, 0.16) + 0.3965 * _TemperatureCelcius * Math.Pow(_WindSpeedKmH, 0.16);
-    // Adjust the wind chill based on the units
-    if (Units == 'F')
-    {
-        WindChill = ConvertToFarhenheit(windChillCelsius);
-    }
-    else
-    {
-        WindChill = windChillCelsius;
-    }
-}
-    WriteLine($"Temperature: {args[0]}°C");
-    WriteLine($"Wind Speed: {args[1]} km/h");
-
-
-public static void ShowHelp()
-{
-    WriteLine("This is a CLI to calculate wind chill.");
-    WriteLine("Usage: dotnet run -- <temperature> <wind speed> <options>");
-    WriteLine();
-    WriteLine("Arguments:");
-    WriteLine("  <temperature>\tAir Temperature (in Celsius by default)");
-    WriteLine("  <wind speed>\tWind Speed (in km/h by default)");
-    WriteLine();
-    WriteLine("Options:");
-    WriteLine("  --help\tShow this help message");
-    WriteLine("  -f\t\tTemperature is in Fahrenheit");
-    WriteLine("  -m\t\tWind speed is in m/h");
-}
-```
-
-----

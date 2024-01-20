@@ -112,7 +112,7 @@ public class WindChill_Should
         actualWindChill.Should().Be(expected);
     }
 
-    [Fact(Skip = "Demo In Class")]
+    [Fact]
     public void Represent_WindSpeed_As_MilesPerHour()
     {
         // Arrange
