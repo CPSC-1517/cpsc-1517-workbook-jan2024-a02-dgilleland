@@ -19,7 +19,7 @@ public class WindChill
     public double _WindSpeed;
     public double WindSpeed
     {
-        get { return 0; }
+        get { return _WindSpeed; }
         set
         {
             if (value < 10)

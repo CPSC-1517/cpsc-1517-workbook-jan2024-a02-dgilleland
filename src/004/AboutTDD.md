@@ -116,7 +116,7 @@ Writing automated tests is a bit of a skill. It's not hard, but it does take som
 
 For our first test, we'll focus on what's required to simply create a `WindChill` object. With that, we'll be able to satisfy one of our requirements:
 
-- [x] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
+- [ ] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
 
 Upon instantiating our object, we will check that the values we supplied for `AirTemperature` and `WindSpeed` have been properly stored in the object's properties.
 
@@ -170,7 +170,7 @@ public class WindChill
 
 Everything now compiles! Let's run the test. In VS Code, press <kbd>ctrl</kbd> + <kbd>;</kbd>, and then press the <kbd>a</kbd> key. Our test will run, but will fail with the following error.
 
-> *Expected sut.WindSpeed to be 20.0, but found 0.0 (difference of -20).*
+> *Expected sut.AirTemperature to be -10.0, but found 0.0 (difference of 10).*
 
 We can fix that by storing the `airTemp` into the corresponding property via the constructor.
 
@@ -180,7 +180,7 @@ AirTemperature = airTemp;
 
 Running our test again, this time the `WindSpeed` value fails our test.
 
-> **
+> *Expected sut.WindSpeed to be 20.0, but found 0.0 (difference of -20).*
 
 Let's complete the constructor.
 
@@ -193,6 +193,8 @@ public WindChill(double airTemp, double windSpeed)
 ```
 
 Our first test passes. On to the next!
+
+- [x] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
 
 ### Ensuring Default Units
 
