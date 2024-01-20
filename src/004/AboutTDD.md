@@ -114,6 +114,14 @@ Writing automated tests is a bit of a skill. It's not hard, but it does take som
 
 ### Our First Test
 
+For our first test, we'll focus on what's required to simply create a `WindChill` object. With that, we'll be able to satisfy one of our requirements:
+
+- [x] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
+
+Upon instantiating our object, we will check that the values we supplied for `AirTemperature` and `WindSpeed` have been properly stored in the object's properties.
+
+First, let's frame our test. A common pattern in unit tests is the Triple-A pattern: *Arrange*, *Act*, and *Assert*. We'll build our test in small steps. Here's our unit test. Note that since we don't yet have a `WindChill` class, we'll be getting a compilation error at the *Act* step.
+
 ```cs
 [Fact] // Annotation that identifies this as a test
 public void Construct_With_AirTemperature_And_WindSpeed()
@@ -130,6 +138,61 @@ public void Construct_With_AirTemperature_And_WindSpeed()
     sut.WindSpeed.Should().Be(givenWind);
 }
 ```
+
+To solve this, we'll create our class inside our console application. Here's the first pass.
+
+```cs
+namespace WindChill;
+
+public class WindChill
+{
+    public WindChill(double airTemp, double windSpeed)
+    {
+    }
+}
+```
+
+Our *Act* step now compiles. But without the properties in place, our *Assert* portion will not compile. Let's fix that.
+
+
+```cs
+namespace WindChill;
+
+public class WindChill
+{
+    public double AirTemperature { get; set; }
+    public double WindSpeed { get; set; }
+    public WindChill(double airTemp, double windSpeed)
+    {
+    }
+}
+```
+
+Everything now compiles! Let's run the test. In VS Code, press <kbd>ctrl</kbd> + <kbd>;</kbd>, and then press the <kbd>a</kbd> key. Our test will run, but will fail with the following error.
+
+> *Expected sut.WindSpeed to be 20.0, but found 0.0 (difference of -20).*
+
+We can fix that by storing the `airTemp` into the corresponding property via the constructor.
+
+```cs
+AirTemperature = airTemp;
+```
+
+Running our test again, this time the `WindSpeed` value fails our test.
+
+> **
+
+Let's complete the constructor.
+
+```cs
+public WindChill(double airTemp, double windSpeed)
+{
+    AirTemperature = airTemp;
+    WindSpeed = windSpeed;
+}
+```
+
+Our first test passes. On to the next!
 
 ### Ensuring Default Units
 
