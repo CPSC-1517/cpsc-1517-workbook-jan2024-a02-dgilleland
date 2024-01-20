@@ -2,8 +2,31 @@
 
 public class WindChill
 {
-    public double AirTemperature { get; set; }
-    public double WindSpeed { get; set; }
+    private double _AirTemperature;
+    public double AirTemperature
+    {
+        get { return _AirTemperature; }
+        set
+        {
+            if (value > 0)
+                throw new ArgumentOutOfRangeException();
+            _AirTemperature = value;
+        }
+    }
+
+    public double _WindSpeed;
+    public double WindSpeed
+    {
+        get { return _WindSpeed; }
+        set
+        {
+            if (value < 10)
+                throw new ArgumentOutOfRangeException("Wind speeds below 10 kph are not allowed");
+            if (value > 70)
+                throw new ArgumentOutOfRangeException("Wind speeds above 70 kph are not allowed");
+            _WindSpeed = value;
+        }
+    }
     public char TemperatureUnits { get; set; } = 'C';
     public string WindSpeedUnits { get; set; } = "km/h";
     public double FeelsLike { get; set; } = -17.855;
