@@ -1,7 +1,9 @@
 ﻿namespace WindChill;
+using static System.Math;
 
 public class WindChill
 {
+    #region Properties/Fields
     private double _AirTemperature;
     public double AirTemperature
     {
@@ -29,16 +31,45 @@ public class WindChill
     }
     public char TemperatureUnits { get; set; } = 'C';
     public string WindSpeedUnits { get; set; } = "km/h";
-    public double FeelsLike { get; set; } = -17.855;
+    public double FeelsLike 
+    { 
+        get
+        {
+            double temperature;
+            if(TemperatureUnits == 'C' && WindSpeedUnits == "km/h")
+            {
+                // Use 13.12 + 0.6215T – 11.37 (V^0.16) + 0.3965T (V^0.16)
+                temperature = 13.12 + 0.6215 * AirTemperature - 11.37 * Pow(WindSpeed, 0.16) + 0.3965 * AirTemperature * Pow(WindSpeed, 0.16);
+            }
+            else
+            {
+                // Use 35.74 + 0.6215T – 35.75 (V^0.16) + 0.4275T (V^0.16)
+                temperature = 35.74 + 0.6215 * AirTemperature - 35.75 * Pow(WindSpeed, 0.16) + 0.4275 * AirTemperature * Pow(WindSpeed, 0.16);
+            }
+            return Round(temperature, 1);
+        }
+     }
+    #endregion
 
+    #region Constructor(s)
     public WindChill(double airTemp, double windSpeed)
     {
         AirTemperature = airTemp;
         WindSpeed = windSpeed;
     }
+    public WindChill(double airTemp, char unitsOfTemperature, double windSpeed, string unitsOfWindSpeed)
+    {
+        _AirTemperature = airTemp;
+        TemperatureUnits = unitsOfTemperature;
+        _WindSpeed = windSpeed;
+        WindSpeedUnits = unitsOfWindSpeed;
+    }
+    #endregion
 
+    #region Methods
     public override string ToString()
     {
-        return $"-10{'\u00B0'}C at 20km/h feels like -17.855{'\u00B0'}C";
+        return $"{AirTemperature}{'\u00B0'}{TemperatureUnits} at {WindSpeed}{WindSpeedUnits} feels like {FeelsLike}{'\u00B0'}{TemperatureUnits}";
     }
+    #endregion
 }

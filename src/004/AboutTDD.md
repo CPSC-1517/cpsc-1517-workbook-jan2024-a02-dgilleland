@@ -112,14 +112,26 @@ We might also want to think about how our driver is going to be handling our cla
 
 Writing automated tests is a bit of a skill. It's not hard, but it does take some practice. Usually, the best practice is to get exposed to reading tests before you start writing your own. Yes, you'll do the "coding", but for now, I'll be providing the tests for you to write. *Your* job will be to write the code that makes the tests pass!
 
-
-
-
 ### Our Final Calculation
 
+It's time to get a little more serious about our calculations of the wind speeds.
 
-So far, that looks good. But we should remember that the formula is using exponents (e.g.: $T^{0.16}$) and other fractional values (e.g.: $0.6215$). Unless we employ precise rounding at certain points of our calculations, we'll probably get some failed tests. Therefore, we'll use some *aproximations* in our tests.
+Our single test for the wind chill in °C was easy to pass by just returning the expected value. But we should remember that the formula is using exponents (e.g.: $T^{0.16}$) and other fractional values (e.g.: $0.6215$). Unless we employ precise rounding at certain points of our calculations, we'll probably get some failed tests. Therefore, we'll use some *aproximations* in our tests. Generally speaking, it should be sufficient enough to look for temperature results that are rounded to a tenth of a degree (regardless of the units).
 
+Additionally, we need to deal with the English units of °F and m/h. We could hand-calculate the values, or we can take another look to see if there's a reliable online calculator for wind chill. I found a good one, this time from the [**National Weather Service**](https://www.weather.gov/epz/wxcalc_windchill) (which presumably would be a good resource). Let's re-populate our table of test data from earlier.
+
+| Air Temp (°C) | Wind Speed (km/h) | Wind Chill |
+| :--: | :--: | :--: |
+| -10 | 20 | -17.9 |
+
+| Air Temp (°F) | Wind Speed (m/h) | Wind Chill |
+| :--: | :--: | :--: |
+| 32 | 10 | 23.7 |
+
+
+### What's Missing
+
+We've been able to get our calculations for the units to work well for both Metric and English units. But there's a few "shortcuts" we've taken by having our overloaded constructor skip the properties and going directly to the fields used as the backstore. It's time to fix that.
 
 ----
 

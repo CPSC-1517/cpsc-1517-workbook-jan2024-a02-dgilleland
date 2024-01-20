@@ -46,7 +46,7 @@ public class WindChill_Should
     {
         // Arrange
         WindChill sut = new(-10, 20);
-        double expected = -17.855; // From our table of test data
+        double expected = -17.9; // From our table of test data
         // Act
         var actual = sut.FeelsLike;
         // Assert
@@ -57,7 +57,7 @@ public class WindChill_Should
     public void Represent_WindChill_As_Text()
     {
         // Arrange
-        string expected = $"-10{'\u00B0'}C at 20km/h feels like -17.855{'\u00B0'}C";
+        string expected = $"-10{'\u00B0'}C at 20km/h feels like -17.9{'\u00B0'}C";
         var sut = new WindChill(-10, 20);
         // Act
         string actual = sut.ToString();
@@ -99,15 +99,30 @@ public class WindChill_Should
     public void Represent_Temperature_As_Farenhiet()
     {
         // Arrange
+        WindChill sut = new(32, 'F', 10, "m/h");
+        string expected = $"32{'\u00B0'}F at 10m/h feels like 23.7{'\u00B0'}F";
+
         // Act
+        var actual = sut.FeelsLike;
+        var actualUnits = sut.TemperatureUnits;
+        var actualWindChill = sut.ToString();
         // Assert
+        actual.Should().Be(23.7);
+        actualUnits.Should().Be('F');
+        actualWindChill.Should().Be(expected);
     }
 
     [Fact(Skip = "Demo In Class")]
     public void Represent_WindSpeed_As_MilesPerHour()
     {
         // Arrange
+        WindChill sut = new(32, 'F', 10, "m/h");
+        string expected = $"32{'\u00B0'}F at 10m/h feels like 23.7{'\u00B0'}F";
         // Act
+        var actualUnits = sut.WindSpeedUnits;
+        var actualWindChill = sut.ToString();
         // Assert
+        actualUnits.Should().Be("m/h");
+        actualWindChill.Should().Be(expected);
     }
 }
