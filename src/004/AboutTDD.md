@@ -116,7 +116,7 @@ Writing automated tests is a bit of a skill. It's not hard, but it does take som
 
 For our first test, we'll focus on what's required to simply create a `WindChill` object. With that, we'll be able to satisfy one of our requirements:
 
-- [ ] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
+> - [ ] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
 
 Upon instantiating our object, we will check that the values we supplied for `AirTemperature` and `WindSpeed` have been properly stored in the object's properties.
 
@@ -194,9 +194,17 @@ public WindChill(double airTemp, double windSpeed)
 
 Our first test passes. On to the next!
 
-- [x] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
+> - [x] Retain knowledge of the set of conditions for the calculated wind chill (even *after* the calculation is complete).
 
 ### Ensuring Default Units
+
+We have the requirement that our class use Celsius and km/h as the default units of measurement. 
+
+> - [ ] Be biased toward using the *Celsius* scale for *Air Temperature* and *km/h* for *Wind Speed* (unless otherwise directed).
+
+We know as well that we will be supporting other units of measurement as well (more on that later). One of the implications we can draw from this is that we will need to store the units of measurement for both the *Air Temperature* and *Wind Speed* values. Let's write a pair of tests to make reflect these insights.
+
+First up, we will test for the air temperature units. Here's our test.
 
 ```cs
 [Fact]
@@ -211,6 +219,20 @@ public void Use_Celsius_If_Not_Specified()
 }
 ```
 
+Again, we can see that we don't have a `TemperatureUnits` property. From our test, you should be able to deduce that the property should be a `char` type. Let's add that to our class.
+
+```cs
+public char TemperatureUnits { get; set; }
+```
+
+Our code compiles, but running our tests shows that this test fails. There are several ways we could fix that. Let's use the simplest, which is to give the property a default value.
+
+```cs
+public char TemperatureUnits { get; set; } = 'C';
+```
+
+Great! On to testing the wind speed units.
+
 ```cs
 [Fact]
 public void Use_KmPerHour_If_Not_Specified()
@@ -224,7 +246,22 @@ public void Use_KmPerHour_If_Not_Specified()
 }
 ```
 
+Again, we will have to fix both the compilation error and the test failure. You can probably guess what the solution would look like. Add the following property to the `WindChill` class.
+
+```cs
+public string WindSpeedUnits { get; set; } = "km/h";
+```
+
+> - [x] Be biased toward using the *Celsius* scale for *Air Temperature* and *km/h* for *Wind Speed* (unless otherwise directed).
+
 ### What it Feels Like
+
+With our basic inputs in place, we can move on to the heart of our application: Determining the wind chill. We had two requirements related to this functionality.
+
+> - [ ] Be able to calculate the wind chill for a given set of conditions (*Air Temperature* and *Wind Speed*).
+> - [ ] Represent the entire result in a meaningful way (i.e.: as a simple formatted string).
+
+We'll start with the simplest test we can think of: What does the temperature feel like when the air temperature is -10°C and the wind speed is 20km/h? Here's a test to check that.
 
 ```cs
 [Fact]
@@ -240,6 +277,14 @@ public void Calculate_Wind_Chill_Using_Default_Units()
 }
 ```
 
+Before you go reaching for that formula to perform the calculations, I want to interject a sometimes overlooked principle in taking a Test-Driven Design approach to software: Coding for the simplest solution to our tests. In this case, we're going to take a shortcut and just return the expected value. You might think we're cheating (and we kinda are), but later on we'll encounter other behaviour of our `WindChill` class that will drive us to where we ultimately want to be. For now, just create a simple field with the value we want.
+
+```cs
+public double FeelsLike = -17.855;
+```
+
+Now, let's move on to the test for the string representation of our wind chill. We'll use the same test data as before, and we'll expect our class to implement the `ToString()` method.
+
 ```cs
 [Fact]
 public void Represent_WindChill_As_Text()
@@ -254,7 +299,28 @@ public void Represent_WindChill_As_Text()
 }
 ```
 
+Again, we'll take a shortcut and just return the expected value.
+
+```cs
+public override string ToString()
+{
+    return $"-10{'\u00B0'}C at 20km/h feels like -17.855{'\u00B0'}C";
+}
+```
+
+> - [x] Be able to calculate the wind chill for a given set of conditions (*Air Temperature* and *Wind Speed*).
+> - [x] Represent the entire result in a meaningful way (i.e.: as a simple formatted string).
+
+With our tests passing, let's move on to the question of validating our input.
+
 ### Validating Input
+
+Let's apply a bit of sanitation to our code. We want to put some limits on our choices for the *Air Temperature* and *Wind Speed* values.
+
+> - [ ] Require temperatures to be below freezing.
+> - [ ] Require wind speeds to be between 10 and 70km/h
+
+We'll start with the *Air Temperature*. Here's our test.
 
 ```cs
 [Fact]
@@ -268,6 +334,36 @@ public void Reject_Temperature_Above_Freezing()
 }
 ```
 
+Notice that we've got something entirely new here: the `Action` data type. An *`Action`* is a type of delegate - a representation of some method that that can be called on our behalf by some other part of the codebase. Notice also the value we're assigning to our `Action` variable, `act`. We're using a *lambda expression* to create an anonymous method that will create a new `WindChill` object. Essentially, the `act` variable is a reference to a method that will create a `WindChill` object.
+
+Why are we doing that? Well, the reason is that we want to make sure our `WindChill` constructor will reject an invalid air temperature. That rejection should take the form of an exception (specifically, an `ArgumentOutOfRangeException`). But all of this puts us in a catch-22 situation. How can we call the constructor, and then perform an assertion on the exception?
+
+One approach would be to wrap the constructor call in a `try/catch` block. But that's not very elegant.Instead, we can use the `Should().Throw<>()` method to check that our code throws an exception when we try to create the object. That's why we need an `Action` variable - to "defer" our actual creation of the object until the `Should().Throw<>()` method is called.
+
+This is a common pattern in unit testing potential exceptions. While I would never expect you to come up with this approach on your own, it's good for you to take note of it here for the future.
+
+That's enough of an aside for now. Let's run our test. When we do so, we get the following failure.
+
+> *Expected a `<System.ArgumentOutOfRangeException>` to be thrown, but no exception was thrown.*
+
+How will we make our test pass? The most straight-forward approach is to add a check to our constructor that will throw an exception if the air temperature is above freezing. Here's our updated constructor.
+
+```cs
+public WindChill(double airTemp, double windSpeed)
+{
+    if (airTemp > 0)
+    {
+        throw new ArgumentOutOfRangeException(nameof(airTemp), "Air temperatures above freezing are not allowed");
+    }
+    AirTemperature = airTemp;
+    WindSpeed = windSpeed;
+}
+```
+
+When we run our test, everything passes. Before we move on, take another gander at the constructor's implementation. Our test of the `airTemp` value is the first thing we do: If the value is invalid, we throw an exception. Note that we don't need an `else` clause to our `if` statement. Throwing the exception would cause our constructor to exit immediately. That means that the rest of the code in the constructor will not be executed. This is a common pattern in unit testing: We want to test for the invalid values first, and then we can assume that the values are valid for the rest of the code. These kinds of validations are called **Guard Clauses**.
+
+Let's move on to the wind speed. We'll need two tests (one for the lower limit and one for the upper limit). Here's our next test. This time, I've included a little "extra" for our test: I'll be expecting the exception to contain a particular bit of text in its description of the exception.
+
 ```cs
 [Fact]
 public void Reject_WindSpeed_Below_10kph()
@@ -280,6 +376,28 @@ public void Reject_WindSpeed_Below_10kph()
 }
 ```
 
+Notice the use of the asterixes in the message. These represent *wild cards* in the check for the message. When our constructor throws the exception, the `WithMessage()` method will check to see if the message contains the text we've specified. If it does, then our test will pass. If it doesn't, then our test will fail.
+
+As you might imagine, we can simply add another guard clause to our constructor. Here's the code.
+
+```cs
+public WindChill(double airTemp, double windSpeed)
+{
+    if (airTemp > 0)
+    {
+        throw new ArgumentOutOfRangeException(nameof(airTemp), "Air temperatures above freezing are not allowed");
+    }
+    if (windSpeed < 10)
+    {
+        throw new ArgumentOutOfRangeException(nameof(windSpeed), "Wind speeds below 10 kph are not allowed");
+    }
+    AirTemperature = airTemp;
+    WindSpeed = windSpeed;
+}
+```
+
+Now, let's test for the upper limit.
+
 ```cs
 [Fact]
 public void Reject_WindSpeed_Over_70kph()
@@ -291,6 +409,11 @@ public void Reject_WindSpeed_Over_70kph()
     act.Should().Throw<ArgumentOutOfRangeException>().WithMessage("*Wind speeds above 70 kph are not allowed*");
 }
 ```
+
+Can you create the code to make that test pass? I'll leave it up to you to figure that out. Once you're done, you'll have a `WindChill` class that filters out unwanted input.
+
+> - [ ] Require temperatures to be below freezing.
+> - [ ] Require wind speeds to be between 10 and 70km/h
 
 ### Time for Real Math
 
@@ -308,25 +431,36 @@ Additionally, we need to deal with the English units of °F and m/h. We could ha
 | :--: | :--: | :--: |
 | 32 | 10 | 23.7 |
 
+Obviously, we're going to have to go back and fix our tests for the Celsius calculations and the `.ToString()` implementations. But let's start with the English units.
+
 ### Handling English Units
+
+I've referred to the use of Farenheit and miles-per-hour as English units, simply because they originated in Europe. It might be more accurate to refer to these as the *American* units of measurement, since the US is one of the very few countries that still use them. But I digress. Let's get back to our tests.
+
+- [ ] Be able to handle different units of measurement for the *Air Temperature* and *Wind Speed* (i.e.: Farenheit and miles per hour).
+
+We'll start with the test for the wind chill in °F. Here's our test.
 
 ```cs
 public void Represent_Temperature_As_Farenhiet()
 {
     // Arrange
     WindChill sut = new(32, 'F', 10, "m/h");
-    string expected = $"32{'\u00B0'}F at 10m/h feels like 23.7{'\u00B0'}F";
 
     // Act
-    var actual = sut.FeelsLike;
+    var actualTemp = sut.FeelsLike;
     var actualUnits = sut.TemperatureUnits;
-    var actualWindChill = sut.ToString();
+
     // Assert
     actual.Should().Be(23.7);
     actualUnits.Should().Be('F');
-    actualWindChill.Should().Be(expected);
 }
 ```
+
+This time, I've bundled a couple of assertions into a single test method. Developers can debate the merits of this approach, but for now, let's just go with it. I suspect we might need to come back and do a lot of refactoring of our tests in the near future, so taking liberties with our tests is probably not a big deal at the moment.
+
+
+
 
 ```cs
 [Fact]
