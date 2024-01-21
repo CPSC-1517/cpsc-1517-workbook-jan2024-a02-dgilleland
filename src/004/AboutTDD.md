@@ -39,19 +39,19 @@ Developers face several challenges when it comes to creating software. One of th
 
 ### Automated Tests
 
-One of the early ways developers tried to address this uncertainty was through the use of **Automated Tests**. Creating automated tests is a practice where we write code that tests our code. That is, we create code (*tests*) that embody the expectations about how our production code should work. We then run those tests to see if our code works the way we expect it to. If it does, then we can be more confident that our code is working. If it doesn't, then we know we need to fix our code.
+One of the early ways developers tried to address this uncertainty was through the use of **Automated Tests**. Creating automated tests is a practice where we write code that tests our code. That is, we create code (*tests*) that embody the expectations (or *specifications*) about how our production code should work. We then run those tests to see if our code works the way we want it to. If it does, then we can be more confident that our code is working. If it doesn't, then we know we need to fix our code.
 
 The big benefit of automated tests is that it's much *faster* to run an automated test suite to check for errors than it is to manually test our code. Not only is it much faster, it's a whole lot more *consistent* than relying upon manual tests. Because we can run all of our tests at once, we can be more *thourough* in our testing. All of this helps us to create new code with more confidence.
 
-But automated tests don't just help with creating new code. They also help with *maintaining* our code. As we make changes to one part of our code, we can run our tests to make sure that our changes don't break anything else. This is especially important when we're making changes to code that already works. We want to make sure that our changes don't break anything. This is called **Regression Testing**. Regression Testing is the practice of running all of our tests to make sure that our code still works after we've made changes to it.
+But automated tests don't just help with creating new code. They also help with *maintaining* our code. As we make changes to one part of our code, we can run our tests to make sure that our changes don't break anything else. This is especially important when we're making changes to code that already works. We want to make sure that our changes don't have unintended consequences. This is called **Regression Testing**. Regression Testing is the practice of running all of our tests to make sure that our existing codebase still works after we've made changes to some other part of our codebase.
 
 ### Types of Tests
 
-There are different kinds of automated tests. One of the oldest and best known are **Unit Tests**. Unit tests focus on a small unit of functionality for our code base. For example, we might have a unit test that checks to see if a method returns the correct value. Or we might have a unit test that checks to see if a method throws an exception when it's supposed to.
+There are different kinds of automated tests. One of the oldest and best known are **Unit Tests**. Unit tests focus on a small unit of functionality for our code base. For example, we might have a unit test that checks to see if a method returns the correct value. Or we might have a unit test that checks to see if a method throws an exception when given bad inputs or run under faulty conditions.
 
 Unit tests are great for testing small units of functionality, but they're not so great for testing larger units of functionality. For that, we need a different kind of test: **Integration Tests**. Integration tests are used to test larger units of functionality, particularly when they cross some sort of *processing boundary*.
 
-Integration tests are great for testing larger units of functionality, but they're not so great for testing the entire breadth of an application. For that, we need **End-to-End Tests**.
+In turn, while integration tests are great for testing larger units of functionality, but they're not so great for testing the entire breadth of an application. For that, we need **End-to-End Tests**.
 
 That's not the end of the list. There are also **Acceptance Tests**, **Smoke Tests**, **Performance Tests**, and more. Each of these tests are used to test different aspects of our application.
 
@@ -80,8 +80,8 @@ Let's create a small bit of test data to help us check that our math is correct.
 > *Grab your calculator and make sure [my math](./WindChill.md#the-wind-chill-formula) is correct here! If you get something different, ask yourself "Why" and keep those thoughts in the back of your mind as we move forward.*
 
 | Air Temp (°C) | Wind Speed (km/h) | Wind Chill |
-| :--: | :--: | :--: |
-| -10 | 20 | -17.855 |
+| :-----------: | :---------------: | :--------: |
+|      -10      |        20         |  -17.855   |
 
 ### Preliminary Thoughts
 
@@ -198,7 +198,7 @@ Our first test passes. On to the next!
 
 ### Ensuring Default Units
 
-We have the requirement that our class use Celsius and km/h as the default units of measurement. 
+We have the requirement that our class use Celsius and km/h as the default units of measurement.
 
 > - [ ] Be biased toward using the *Celsius* scale for *Air Temperature* and *km/h* for *Wind Speed* (unless otherwise directed).
 
@@ -419,48 +419,98 @@ Can you create the code to make that test pass? I'll leave it up to you to figur
 
 It's time to get a little more serious about our calculations of the wind speeds.
 
-Our single test for the wind chill in °C was easy to pass by just returning the expected value. But we should remember that the formula is using exponents (e.g.: $T^{0.16}$) and other fractional values (e.g.: $0.6215$). Unless we employ precise rounding at certain points of our calculations, we'll probably get some failed tests. Therefore, we'll use some *aproximations* in our tests. Generally speaking, it should be sufficient enough to look for temperature results that are rounded to a tenth of a degree (regardless of the units).
+Our single test for the wind chill in °C was easy to pass by just returning the expected value. But we should remember that the formula is using exponents (e.g.: $T^{0.16}$) and other fractional values (e.g.: $0.6215$). Unless we employ precise rounding at certain points of our calculations, we'll probably get some failed tests. Therefore, we'll use some *approximations* in our tests. Generally speaking, it should be sufficient enough to look for temperature results that are rounded to a tenth of a degree (regardless of the units).
 
-Additionally, we need to deal with the English units of °F and m/h. We could hand-calculate the values, or we can take another look to see if there's a reliable online calculator for wind chill. I found a good one, this time from the [**National Weather Service**](https://www.weather.gov/epz/wxcalc_windchill) (which presumably would be a good resource). Let's re-populate our table of test data from earlier.
+Additionally, we need to deal with the English units of **°F** and **m/h**. We could hand-calculate the values, or we can take another look to see if there's a reliable online calculator for wind chill. I found a good one, this time from the [**National Weather Service**](https://www.weather.gov/epz/wxcalc_windchill) (which presumably would be a good resource). Let's re-populate our table of test data from earlier.
 
 | Air Temp (°C) | Wind Speed (km/h) | Wind Chill |
-| :--: | :--: | :--: |
-| -10 | 20 | -17.9 |
+| :-----------: | :---------------: | :--------: |
+|      -10      |        20         |   -17.9    |
 
 | Air Temp (°F) | Wind Speed (m/h) | Wind Chill |
-| :--: | :--: | :--: |
-| 32 | 10 | 23.7 |
+| :-----------: | :--------------: | :--------: |
+|      32       |        10        |    23.7    |
 
 Obviously, we're going to have to go back and fix our tests for the Celsius calculations and the `.ToString()` implementations. But let's start with the English units.
 
 ### Handling English Units
 
-I've referred to the use of Farenheit and miles-per-hour as English units, simply because they originated in Europe. It might be more accurate to refer to these as the *American* units of measurement, since the US is one of the very few countries that still use them. But I digress. Let's get back to our tests.
+> I've referred to the use of Farenheit and miles-per-hour as English units, simply because they originated in Europe. It might be more accurate to refer to these as the *Imperial* units of measurement, since they originated out of the British Empire. Some refer to them as *American* units, since the US is one of the very few countries that still use them. But I digress. Let's get back to our tests.
+
+Supporting alternate sets of units is going to introduce some challenges to our program, in part because we're going to have to think about how that might affect our earlier tests. Here's our requirement.
 
 - [ ] Be able to handle different units of measurement for the *Air Temperature* and *Wind Speed* (i.e.: Farenheit and miles per hour).
 
-We'll start with the test for the wind chill in °F. Here's our test.
+Let's start with testing the temperature in °F.
 
 ```cs
+[Fact]
 public void Represent_Temperature_As_Farenhiet()
 {
     // Arrange
     WindChill sut = new(32, 'F', 10, "m/h");
 
     // Act
-    var actualTemp = sut.FeelsLike;
+    var actualTemp = sut.AirTemperature;
     var actualUnits = sut.TemperatureUnits;
 
     // Assert
-    actual.Should().Be(23.7);
+    actualTemp.Should().Be(32);
     actualUnits.Should().Be('F');
 }
 ```
 
 This time, I've bundled a couple of assertions into a single test method. Developers can debate the merits of this approach, but for now, let's just go with it. I suspect we might need to come back and do a lot of refactoring of our tests in the near future, so taking liberties with our tests is probably not a big deal at the moment.
 
+Notice here that we have a new constructor, one that takes four arguments. We'll need to add that to our `WindChill` class.
 
+```cs
+public WindChill(double airTemp, char airTempUnits, double windSpeed, string windSpeedUnits)
+{
+}
+```
 
+Our test fails, so let's fix that (in the easiest way possible).
+
+```cs
+public WindChill(double airTemp, char airTempUnits, double windSpeed, string windSpeedUnits)
+{
+    AirTemperature = airTemp;
+    TemperatureUnits = airTempUnits;
+}
+```
+
+Looks good so far, but there's something that should cause us to stop and ponder what we're doing.
+
+With two constructors in play, we should give some thought to how we want to handle the different constructors. After all, both constructors should help us set up a valid WindChill object, and a constructor's sole purpose is to make sure that all the parameters/fields have meaningful values. How are we going to do that?
+
+We could duplicate our code, copying what we already have in our two-parameter constructor into our four-parameter constructor. But that's going to result in some extra maintenance along the way. That's not a long term solution. Instead, let's have the two-argument constructor call the four-argument constructor, passing in our default assumptions about the units being Celsius and kilometers-per-hour. That way, we can keep all of the code that sets the properties and fields in one place. Modify your constructors to look like this.
+
+> This approach of making one constructor call another in the same class is called **constructor chaining**. It's a common pattern in object-oriented programming.
+
+```cs
+public WindChill(double airTemp, double windSpeed)
+    : this(airTemp, 'C', windSpeed, "km/h") // Call the four-argument constructor
+{
+    if (airTemp > 0)
+    {
+        throw new ArgumentOutOfRangeException(nameof(airTemp), "Air temperatures above freezing are not allowed");
+    }
+    if (windSpeed < 10)
+    {
+        throw new ArgumentOutOfRangeException(nameof(windSpeed), "Wind speeds below 10 kph are not allowed");
+    }
+}
+
+public WindChill(double airTemp, char airTempUnits, double windSpeed, string windSpeedUnits)
+{
+    AirTemperature = airTemp;
+    WindSpeed = windSpeed;
+    TemperatureUnits = airTempUnits;
+}
+```
+
+At present, I've got the two-argument constructor throwing the exceptions. We'll come back to that in a moment. For now, our tests are still passing, so let's move on to represent the wind speed in miles-per-hour.
 
 ```cs
 [Fact]
@@ -471,25 +521,248 @@ public void Represent_WindSpeed_As_MilesPerHour()
     string expected = $"32{'\u00B0'}F at 10m/h feels like 23.7{'\u00B0'}F";
     // Act
     var actualUnits = sut.WindSpeedUnits;
-    var actualWindChill = sut.ToString();
+    var actualWindSpeed = sut.WindSpeed;
     // Assert
     actualUnits.Should().Be("m/h");
-    actualWindChill.Should().Be(expected);
+    actualWindSpeed.Should().Be(10);
 }
 ```
 
+It's only a small change in our four-parameter constructor to set the wind speed units.
+
+```cs
+public WindChill(double airTemp, char airTempUnits, double windSpeed, string windSpeedUnits)
+{
+    AirTemperature = airTemp;
+    WindSpeed = windSpeed;
+    TemperatureUnits = airTempUnits;
+    WindSpeedUnits = windSpeedUnits;
+}
+```
+
+We're now capturing the units of measurement for both the air temperature and the wind speed. But we need to review our test data and our tests to make sure we're handling everything correctly.
 
 ### What's Missing
 
-We've been able to get our calculations for the units to work well for both Metric and English units. But there's a few "shortcuts" we've taken by having our overloaded constructor skip the properties and going directly to the fields used as the backstore. It's time to fix that.
+Let's revisit our test data and formally introduce a more comprehensive representation of all of our inputs and outputs. Here's a re-write that includes valid inputs and expected outputs, with some extra calculations along the way.
 
-Before we continue to the unit tests, let's revisit our test data and formally introduce some data for invalid results.
+| Air Temp | Temp Units | Wind Speed | Speed Units | Resulting Wind Chill |
+| :------: | :--------: | :--------: | :---------: | :------------------: |
+|  `-10`   |            |    `20`    |             |      **-17.9**       |
+|  `-10`   |    `C`     |    `20`    |   `km/h`    |      **-17.9**       |
+|   `32`   |    `F`     |    `10`    |    `m/h`    |       **23.7**       |
 
-| Air Temp (°C) | Wind Speed (km/h) | Wind Chill |
-| :--: | :--: | :--: |
-| -10 | 20 | -17.9 |
+In the table above, a blank cell indicates that we're relying upon our default units of Celsius and km/h.
 
-| Air Temp (°F) | Wind Speed (m/h) | Wind Chill |
-| :--: | :--: | :--: |
-| 32 | 10 | 23.7 |
+We won't look at mixing the Imperial and Metric units (though our code allows it to happen). Instead, we'll focus on rewriting our last two tests to reflect the idea of being explicit in our units of measurement. First, let's replace our `Represent_Temperature_As_Farenhiet()` and `Represent_WindSpeed_As_MilesPerHour()` tests with this single test.
+
+```cs
+[Theory]
+[InlineData(-10, 'C', 20, "km/h")]
+[InlineData(32, 'F', 10, "km/h")]
+public void Represent_WindChill_Inputs_With_Explicit_Units(double givenAir, char givenTempUnits, double givenWind, string givenWindUnits)
+{
+    // Arrange
+    // Act
+    WindChill sut = new(givenAir, givenTempUnits, givenWind, givenWindUnits);
+
+    // Assert
+    sut.AirTemperature.Should().Be(givenAir);
+    sut.TemperatureUnits.Should().Be(givenTempUnits);
+
+    sut.WindSpeed.Should().Be(givenWind);
+    sut.WindSpeedUnits.Should().Be(givenWindUnits);
+}
+```
+
+Notice how our single test is no longer written as a `[Fact]` but as a `[Theory]`. This is because we want the test to be true for various sets of inputs (represented in the `[InlineData]` attributes). The test runner will run the test multiple times, once for each set of inputs. The `[InlineData]` attribute tells the test runner what those inputs should be.
+
+Because we have only rewritten our specifications (*tests*), without forcing changes on our `WindSpeed` class, our test should still pass.
+
+### Finally! The Wind Chill Formula
+
+We've been putting off the actual calculations for the wind chill. Let's get to it! Start by creating the following theory.
+
+```cs
+[Theory]
+[InlineData(-10, 'C', 20, "km/h", -17.9)]
+[InlineData(32, 'F', 10, "km/h", 23.7)]
+public void Calculate_WindChill_From_Explicit_Units(double givenAir, char givenTempUnits, double givenWind, string givenWindUnits, double expectedWindChill)
+{
+    // Arrange
+    // Act
+    WindChill sut = new(givenAir, givenTempUnits, givenWind, givenWindUnits);
+
+    // Assert
+    sut.FeelsLike.Should().Be(expectedWindChill);
+}
+```
+
+As you might expect, our test fails (at least for one set of inputs). That's because we had hard-coded the `FeelsLike` field along with the results of our `.ToString()` override. Let's draw our our formula and see if we can't get our tests to pass.
+
+There are actually two sets of formulas that are available to us. Here's the first set for Celsius and km/h.
+
+$$
+13.12 + (0.6215 \times T_C) - 11.37 \times (V_k^{0.16}) + 0.3965 \times T_C (V_k^{0.16})
+$$
+
+The one for Fahrenheit and m/h is a little different.
+
+$$
+35.74 + (0.6215 \times T_F) – 35.75 \times (V_m^0.16) + 0.4275 \times T_F (V_m^0.16)
+$$
+
+To implement these formulas, we will replace our `FeelsLike` field with a `FeelsLike` property that calculates our wind chill. Here's our first pass.
+
+```cs
+public double FeelsLike 
+{ 
+    get
+    {
+        double temperature;
+        if(TemperatureUnits == 'C' && WindSpeedUnits == "km/h")
+        {
+            // Metric Calculation
+            temperature = 13.12 + 0.6215 * AirTemperature - 11.37 * Pow(WindSpeed, 0.16) + 0.3965 * AirTemperature * Pow(WindSpeed, 0.16);
+        }
+        else
+        {
+            // Imperial Calculation
+            temperature = 35.74 + 0.6215 * AirTemperature - 35.75 * Pow(WindSpeed, 0.16) + 0.4275 * AirTemperature * Pow(WindSpeed, 0.16);
+        }
+        return Round(temperature, 1);
+    }
+}
+```
+
+This caused our most recent test to finally pass, but we broke an earlier test (`Calculate_Wind_Chill_Using_Default_Units()`). That's because we had a hard-coded expectation of the wind chill calculated to more decimal places. The problem lays in our test, so let's fix that with our updated data.
+
+```cs
+[Fact]
+public void Calculate_Wind_Chill_Using_Default_Units()
+{
+    // Arrange
+    WindChill sut = new(-10, 20);
+    double expected = -17.9; // <== Change this line
+    // Act
+    var actual = sut.FeelsLike;
+    // Assert
+    actual.Should().Be(expected);
+}
+```
+
+Wonderful! We're almost there!
+
+Now, let's wrap up our WindChill class by testing for the desired text output.
+
+```cs
+[Theory]
+[InlineData(-10, 'C', 20, "km/h", -17.9)]
+[InlineData(32, 'F', 10, "km/h", 23.7)]
+public void Represent_WindChill_Text_With_Explicit_Units(double givenAir, char givenTempUnits, double givenWind, string givenWindUnits, double expectedWindChill)
+{
+    // Arrange
+    string expectedText = $"{givenAir}{'\u00B0'}{givenTempUnits} at {givenWind}{givenWindUnits} feels like {expectedWindChill}{'\u00B0'}{givenTempUnits}";
+    // Act
+    WindChill sut = new(givenAir, givenTempUnits, givenWind, givenWindUnits);
+
+    // Assert
+    sut.ToString().Should().Be(expectedText);
+}
+```
+
+In this test, we actually get a hint at what our `.ToString()` implementation should look like. Let's implement that now.
+
+```cs
+public override string ToString()
+{
+    return $"{AirTemperature}{'\u00B0'}{TemperatureUnits} at {WindSpeed}{WindSpeedUnits} feels like {FeelsLike}{'\u00B0'}{TemperatureUnits}";
+}
+```
+
+Once again, our most recent test passes, but we've broken an earlier test (`Represent_WindChill_As_Text()`).
+
+```cs
+[Fact]
+public void Represent_WindChill_As_Text()
+{
+    // Arrange - Fix the expectation below
+    string expected = $"-10{'\u00B0'}C at 20km/h feels like -17.9{'\u00B0'}C";
+    var sut = new WindChill(-10, 20);
+    // Act
+    string actual = sut.ToString();
+    // Assert
+    actual.Should().Be(expected);
+}
+```
+
+### Revisiting Input Validation
+
+The final part of our tests into the WindChill class is to revisit our input validation. We had two tests that were checking for invalid inputs with default units. We can keep those, but we need to reconsider what those limits are for °F and m/h.
+
+```cs
+[Fact]
+public void Reject_Temperature_Above_Freezing_In_Farhenheit()
+{
+    // Arrange
+    Action act = () => new WindChill(33, 'F', 10, "m/h");
+    // Act
+    // Assert
+    act.Should().Throw<ArgumentOutOfRangeException>();
+}
+```
+
+How should we handle this new limit? Again, having a guard clause is a good idea. Let's put one in our four-parameter constructor.
+
+
+```cs
+public WindChill(double airTemp, char airTempUnits, double windSpeed, string windSpeedUnits)
+{
+    if(airTempUnits == 'F' && airTemp > 32)
+    {
+        throw new ArgumentOutOfRangeException(nameof(airTemp), "Air temperatures above freezing are not allowed");
+    }
+
+    AirTemperature = airTemp;
+    WindSpeed = windSpeed;
+    TemperatureUnits = airTempUnits;
+    WindSpeedUnits = windSpeedUnits;
+}
+```
+
+That was pretty clean, thanks in large part to the fact that 32°F is the same as 0°C. But what about the wind speed? We had arbitrarily set our lower and upper limits to 10 and 70 km/h respectively. Their equivalents in m/h are not quite as clean, and we'll need a bit of test data for that. After checking online, I found that a low speed of 6.2 m/h and a high speed of 43.5 m/h will fall just outside of the range of acceptable values. Let's use those in our tests.
+
+```cs
+[Fact]
+public void Reject_Low_WindSpeed_In_MPH()
+{
+    // Arrange
+    Action act = () => new WindChill(14, 'F', 6.2, "m/h");
+    // Act
+    // Assert
+    act.Should().Throw<ArgumentOutOfRangeException>().WithMessage("*Wind speed is below the lower limit*");
+}
+```
+
+```cs
+[Fact]
+public void Reject_High_WindSpeed_In_MPH()
+{
+    // Arrange
+    Action act = () => WindChill(2, 'F', 43.5, "m/h");
+    // Act
+    // Assert
+    act.Should().Throw<ArgumentOutOfRangeException>().WithMessage("*Wind speed is above the upper limit*");
+}
+```
+
+How would you write the code to pass these last two tests? I can imagine a few ways of implementing them. I'll leave it for you to figure this one out as an exercise.
+
+----
+
+## Conclusion
+
+In this tutorial, we've taken a look at how we can use Test-Driven Design to create a class that calculates the wind chill. We've seen how we can use unit tests to drive the design of our class, and how we can use those tests to help us refactor our code. We've also seen how we can use the Triple-A pattern to help us organize our tests.
+
+Our `WindChill` project served as a good sample for exploring the concepts and mechanics of Test-Driven Design. There's still more to be done, and in the next article on [Completing the WindChill CLI](./CompletingTheCLI.md) we will explore a **builder pattern** for creating our `WindChill` objects from command-line parameters.
 
