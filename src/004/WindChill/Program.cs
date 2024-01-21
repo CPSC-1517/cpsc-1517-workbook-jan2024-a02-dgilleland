@@ -1,31 +1,36 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using static System.Console;
+using static WindChill.WindChill;
 WriteLine("Hello, Wind-Chill!");
 
-// Check the arguments
 int exitCode = 0;
-if (args.Length < 2)
-{
-    if(args.Length == 0 || (args[0] != "--help" && args[0] != "-h"))
-        exitCode = ProcessError("Invalid arguments.");
-
+if (HasHelpArg())
     ShowHelp();
-}
-else if (args.Length < 4)
-{
-    // TODO: Parse the arguments and calculate the wind chill
-    ForegroundColor = ConsoleColor.Yellow;
-    WriteLine("Not Yet Implemented");
-    ResetColor();
-}
 else
 {
-    exitCode = ProcessError("Invalid arguments.");
-    ShowHelp();
+    try
+    {
+        var windChill = Build(args);
+        ForegroundColor = ConsoleColor.Green;
+        WriteLine(windChill);
+    }
+    catch(Exception ex)
+    {
+        exitCode = ProcessError(ex.Message);
+        ShowHelp();
+    }
+    finally
+    {
+        ResetColor();
+    }
 }
-
-
 return exitCode;
+
+
+bool HasHelpArg()
+{
+    return args.Length > 0 && (args[0] == "--help" || args[0] == "-h");
+}
 
 int ProcessError(string message)
 {
