@@ -109,6 +109,7 @@
 > "7H3 M345UR3 OF 1N73LL163NC3 15 7H3 481L17Y 70 CH4N63" - 4l83r7 31n5731n
 
 - [ ] Discuss the Take-Home Lab Exercises
+  - [ ] Ex 1 - Project/Solution Setup
 - [ ] Resume **WindChill** demo
 - [ ] **Homework!**
   - [ ] In VS Code: *Help -> Welcome*, then follow the "Get Started with C# DevKit"
@@ -118,11 +119,24 @@
 
 ## Jan 22 (W3)
 
-- [ ] Resume **WindChill** demo
-  - [ ] version 2 - with unit tests and simple primitive class members
+- [ ] Discuss the Take-Home Lab Exercises
+  - [ ] Ex 1 - Unit Tests & Utilities class
+- [ ] C# Review Presentations
+  - [ ] [Foundational Concepts](https://programming-0101.github.io/slides/OOP-Ramp-Up/00-FoundationalConcepts.html)
+  - [ ] [Grammar](https://programming-0101.github.io/slides/OOP-Ramp-Up/01-Grammar.html)
+  - [ ] [Enums](https://programming-0101.github.io/slides/OOP-Ramp-Up/02-Enum.html)
 
 ## Jan 23
 
+- [ ] C# Review Presentations
+  - [ ] [Simple Objects](https://programming-0101.github.io/slides/OOP-Ramp-Up/03-Objects.html)
+  - [ ] [Object Inheritance](https://programming-0101.github.io/slides/OOP-Ramp-Up/04-Objects.html)
+  - [ ] [Arrays](https://programming-0101.github.io/slides/OOP-Ramp-Up/05-Arrays.html)
+  - [ ] [Interfaces](https://programming-0101.github.io/slides/OOP-Ramp-Up/08-Interface.html)
+  - [ ] [EF Core](https://programming-0101.github.io/slides/OOP-Ramp-Up/15-EF-Core.html)
+  - [ ] [~~Unit Tests~~](https://programming-0101.github.io/slides/UnitTests/index.html)
+- [ ] Resume **WindChill** demo
+  - [ ] version 2 - with unit tests and simple primitive class members
 - [ ] Resume **WindChill** demo
   - [ ] version 3 - with unit tests and simple primitive class members
 
