@@ -10,6 +10,12 @@ public class WindChill
 
     public WindChill(double airTemp, double windSpeed)
     {
+        if(airTemp > 0)
+            throw new ArgumentOutOfRangeException();
+        if(windSpeed < 10)
+            throw new ArgumentOutOfRangeException("Wind speeds below 10 kph are not allowed");
+        if(windSpeed > 70)
+            throw new ArgumentOutOfRangeException("Wind speeds above 70 kph are not allowed");
         AirTemperature = airTemp;
         WindSpeed = windSpeed;
     }

@@ -63,18 +63,39 @@ public class WindChill_Should
         actual.Should().Be(expected);
     }
 
-    [Fact(Skip = "Demo In Class")]
-    public void Reject_Temperature_Above_Freezing() {}    
+    [Fact]
+    public void Reject_Temperature_Above_Freezing()
+    {
+        // Arrange
+        Action act = () => new WindChill(1, 20);
+        // Act
+        // Assert
+        act.Should().Throw<ArgumentOutOfRangeException>();
+    }
+
+    [Fact]
+    public void Reject_WindSpeed_Below_10kph()
+    {
+        // Arrange
+        Action act = () => new WindChill(0, 9.99999);
+        // Act
+        // Assert
+        act.Should().Throw<ArgumentOutOfRangeException>().WithMessage("*Wind speeds below 10 kph are not allowed*");
+    }
+
+    [Fact]
+    public void Reject_WindSpeed_Over_70kph()
+    {
+        // Arrange
+        Action act = () => new WindChill(0, 71);
+        // Act
+        // Assert
+        act.Should().Throw<ArgumentOutOfRangeException>().WithMessage("*Wind speeds above 70 kph are not allowed*");
+    }
 
     [Fact(Skip = "Demo In Class")]
-    public void Reject_WindSpeed_Below_10kph() {}
-    
+    public void Represent_Temperature_As_Farenhiet() { }
+
     [Fact(Skip = "Demo In Class")]
-    public void Reject_WindSpeed_Over_70kph() {}
-    
-    [Fact(Skip = "Demo In Class")]
-    public void Represent_Temperature_As_Farenhiet() {}    
-    
-    [Fact(Skip = "Demo In Class")]
-    public void Represent_WindSpeed_As_MilesPerHour() {}
+    public void Represent_WindSpeed_As_MilesPerHour() { }
 }
