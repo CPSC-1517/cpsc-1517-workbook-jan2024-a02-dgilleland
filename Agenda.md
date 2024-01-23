@@ -131,10 +131,6 @@
 - [ ] C# Review Presentations
   - [ ] [Simple Objects](https://programming-0101.github.io/slides/OOP-Ramp-Up/03-Objects.html)
   - [ ] [Object Inheritance](https://programming-0101.github.io/slides/OOP-Ramp-Up/04-Objects.html)
-  - [ ] [Arrays](https://programming-0101.github.io/slides/OOP-Ramp-Up/05-Arrays.html)
-  - [ ] [Interfaces](https://programming-0101.github.io/slides/OOP-Ramp-Up/08-Interface.html)
-  - [ ] [EF Core](https://programming-0101.github.io/slides/OOP-Ramp-Up/15-EF-Core.html)
-  - [ ] [~~Unit Tests~~](https://programming-0101.github.io/slides/UnitTests/index.html)
 - [ ] Resume **WindChill** demo
   - [ ] version 2 - with unit tests and simple primitive class members
 - [ ] Resume **WindChill** demo
@@ -147,3 +143,11 @@
 - [ ] **Tip:** *Don't force abstractions by rushing to create complex data types. Begin with classes/records that have intrinsic primitive types"
 
 ----
+
+## *Future - TBD*
+
+- [ ] C# Review Presentations
+  - [ ] [Arrays](https://programming-0101.github.io/slides/OOP-Ramp-Up/05-Arrays.html)
+  - [ ] [Interfaces](https://programming-0101.github.io/slides/OOP-Ramp-Up/08-Interface.html)
+  - [ ] [EF Core](https://programming-0101.github.io/slides/OOP-Ramp-Up/15-EF-Core.html)
+  - [ ] [~~Unit Tests~~](https://programming-0101.github.io/slides/UnitTests/index.html)
