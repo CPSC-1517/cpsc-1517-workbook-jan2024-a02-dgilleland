@@ -131,14 +131,14 @@
 - [ ] C# Review Presentations
   - [ ] [Simple Objects](https://programming-0101.github.io/slides/OOP-Ramp-Up/03-Objects.html)
   - [ ] [Object Inheritance](https://programming-0101.github.io/slides/OOP-Ramp-Up/04-Objects.html)
-- [ ] Resume **WindChill** demo
+- [ ] Resume [**WindChill**](./src/004) demo
   - [ ] version 1 - with unit tests and simple primitive class members
 
 ## Jan 25
 
 - [ ] Demo **Fraction**
   - [ ] version 1 - create unit tests
-- [ ] **Tip:** *Don't force abstractions by rushing to create complex data types. Begin with classes/records that have intrinsic primitive types"
+- [ ] **Tip:** *Don't force abstractions by rushing to create complex data types. Begin with classes/records that have intrinsic primitive types.*
 
 ----
 
