@@ -132,9 +132,7 @@
   - [ ] [Simple Objects](https://programming-0101.github.io/slides/OOP-Ramp-Up/03-Objects.html)
   - [ ] [Object Inheritance](https://programming-0101.github.io/slides/OOP-Ramp-Up/04-Objects.html)
 - [ ] Resume **WindChill** demo
-  - [ ] version 2 - with unit tests and simple primitive class members
-- [ ] Resume **WindChill** demo
-  - [ ] version 3 - with unit tests and simple primitive class members
+  - [ ] version 1 - with unit tests and simple primitive class members
 
 ## Jan 25
 
@@ -146,6 +144,10 @@
 
 ## *Future - TBD*
 
+- [ ] Resume **WindChill** demo
+  - [ ] version 2 - 
+- [ ] Resume **WindChill** demo
+  - [ ] version 3 - 
 - [ ] C# Review Presentations
   - [ ] [Arrays](https://programming-0101.github.io/slides/OOP-Ramp-Up/05-Arrays.html)
   - [ ] [Interfaces](https://programming-0101.github.io/slides/OOP-Ramp-Up/08-Interface.html)
