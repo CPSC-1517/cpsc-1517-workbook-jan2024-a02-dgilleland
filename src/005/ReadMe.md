@@ -24,3 +24,13 @@ cd AssortedDemos.Specs
 dotnet add project ../AssortedDemos/Assorted.csproj
 dotnet add package FluentAssertions
 ```
+
+### Creating a `Fraction` Data Type
+
+> TODO: More Notes....
+
+#### Parsing
+
+We've given our `Fraction` objects the ability to be expressed as a string. Now, let's see if we can *reverse* the process. Taking textual information an producing some other type of object is known as **parsing**.
+
+All of the built-in numeric data types in C# have `static` methods to support converting strings to their numeric values. As a common convention, those methods are called `Parse()` and `TryParse()`. We want our custom numeric data type to do the same, which means we will need to create a `Fraction.Parse()` and `Fraction.TryParse()` pair of methods. Let's begin with our specifications.

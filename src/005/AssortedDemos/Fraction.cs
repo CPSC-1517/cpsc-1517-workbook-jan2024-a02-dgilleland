@@ -15,4 +15,32 @@ public class Fraction
     {
         return $"{Numerator}/{Denominator}";
     }
+
+    public static Fraction Parse(string text)
+    {
+        // Guard clauses
+        if(text is null)
+            throw new FormatException("A null string is not a valid fraction");
+        // Actual work
+        string[] parts = text.Split('/');
+        if(parts.Length != 2)
+            throw new FormatException();
+        int num = int.Parse(parts[0]);
+        int denom = int.Parse(parts[1]);
+        return new Fraction(num, denom);
+    }
+
+    public static bool TryParse(string text, out Fraction result)
+    {
+        try
+        {
+            result = Parse(text);
+            return true;
+        }
+        catch (System.Exception)
+        {
+            result = default;
+            return false; // Explicit return type
+        }
+    }
 }

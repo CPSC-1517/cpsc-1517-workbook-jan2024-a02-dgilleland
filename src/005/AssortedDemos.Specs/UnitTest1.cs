@@ -26,4 +26,50 @@ public class Fraction_Should
         // Assert
         actual.Should().Be(expectedText);
     }
+
+    [Fact]
+    public void Parse_Text_Into_Fraction()
+    {
+        // Arrange (Given)
+        string given = "3/4";
+        // Act     (When)
+        Fraction actual = Fraction.Parse(given);
+        // Assert  (Then)
+        actual.Numerator.Should().Be(3);
+        actual.Denominator.Should().Be(4);
+    }
+
+    [Theory]
+    [InlineData("bob")]
+    [InlineData("")]
+    [InlineData(null)]
+    [InlineData("12")]
+    [InlineData("12/bob")]
+    [InlineData("1/2/3")]
+    public void Reject_Invalid_Text_When_Parsing(string given)
+    {
+        // Arrange
+        Action act = () => Fraction.Parse(given);
+        // Act
+        // Assert
+        act.Should().Throw<FormatException>();
+    }
+
+    [Theory]
+    [InlineData("bob")]
+    [InlineData("")]
+    [InlineData(null)]
+    [InlineData("12")]
+    [InlineData("12/bob")]
+    [InlineData("1/2/3")]
+    public void Reject_Invalid_Text_When_TryParsing(string given)
+    {
+        // Arrange
+        Fraction actualObj;
+        // Act
+        bool actual = Fraction.TryParse(given, out actualObj);
+        // Assert
+        actual.Should().BeFalse();
+    }
+
 }
