@@ -61,8 +61,8 @@ Write the code for the Angle class. The solution must meet the following require
   * Radians = Degrees * (p / 180)
   * Grads = Radians * (200 / p)
 * Should override the `ToString()` method to return the angle in degrees, in the following format:
-  * degrees°
-  * The Unicode character for the degrees symbol (°) is `'\u00B0'`
+  * degreesï¿½
+  * The Unicode character for the degrees symbol (ï¿½) is `'\u00B0'`
 * **Should get the type of angle, based on the following table**
 
 Angle Range     | Angle Type
@@ -77,7 +77,20 @@ Angle Range     | Angle Type
 
 Use the following class diagram when creating your solution.
 
-![](./Images/Angle.png)
+```mermaid
+classDiagram
+namespace Assorted {
+    class Angle {
+      + double Degrees
+      + double Grads
+      + double Radians
+      + Angle(double degrees)
+      + ToString() string
+    }
+}
+```
+
+Note that the properties have public `get` implementations and only the `Degrees` as a `set` (which is private).
 
 ### Coin + CoinFace
 
