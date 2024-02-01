@@ -43,4 +43,11 @@ public class Fraction
             return false; // Explicit return type
         }
     }
+
+    public static Fraction operator *(Fraction a, Fraction b)
+    {
+        int num = a.Numerator * b.Numerator;
+        int denom = a.Denominator * b.Denominator;
+        return new(num, denom);
+    }
 }

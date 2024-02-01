@@ -72,4 +72,15 @@ public class Fraction_Should
         actual.Should().BeFalse();
     }
 
+    [Fact]
+    public void Multiply_Fractions()
+    {
+        // Arrange
+        Fraction first = new(1, 2), second = new(3, 5);
+        // Act
+        Fraction actual = first * second;
+        // Assert
+        actual.Numerator.Should().Be(3);
+        actual.Denominator.Should().Be(10);
+    }
 }
