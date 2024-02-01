@@ -62,10 +62,18 @@ public class Angle_Should
         actual.Should().Be(expectedGrads);
     }
 
-    [Theory]
+    [Theory] // Test all boundary conditions
     [InlineData(0, Undefined)]
     [InlineData(360, Undefined)]
-    
+    [InlineData(90, Right)]
+    [InlineData(0.01, Acute)]
+    [InlineData(89.9, Acute)]
+    [InlineData(90.001, Obtuse)]
+    [InlineData(179.99, Obtuse)]
+    [InlineData(180, Straight)]
+    [InlineData(180.0001, Reflex)]
+    [InlineData(359.999, Reflex)]
+    [InlineData(360, FullRotation)]
     public void Determine_Angle_Type(double given, AngleType expected)
     {
         // Arrange
