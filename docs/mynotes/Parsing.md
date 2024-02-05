@@ -36,7 +36,7 @@ public static class EnumParser
     {
         try
         {
-            result = Parse(text);
+            result = Parse<T>(text);
             return true;
         }
         catch
