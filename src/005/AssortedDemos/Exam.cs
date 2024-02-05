@@ -1,5 +1,5 @@
 namespace Assorted;
-
+using static System.Text.EnumParser;
 public class Exam
 {
     public string Name { get; }
@@ -29,16 +29,11 @@ public class Exam
         string[] remaining = parts.Skip(1).ToArray();
         foreach(string item in remaining)
         {
-            if(item.Length == 1)
-            {
-                // Parse it as a MultipleChoice.Answer value
-                MultipleChoice.Answer answer = (MultipleChoice.Answer) Enum.Parse(typeof (MultipleChoice.Answer), item, true);
+            MultipleChoice.Answer answer;
+            if(TryParse(item, out answer))
                 result.Questions.Add(new(answer));
-            }
             else
-            {
                 result.Questions.Add(new()); // not-answered question
-            }
         }
         return result;
     }

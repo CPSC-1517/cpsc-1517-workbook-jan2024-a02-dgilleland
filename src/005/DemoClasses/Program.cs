@@ -9,10 +9,22 @@ if(args.Length == 0)
 else
 {
     // TODO: Support more demos
-    DemoFractions.Run(args);
+    switch(args[0])
+    {
+        case "-f":
+            DemoFractions.Run(args);
+            break;
+        case "-q":
+            DemoScantron.Run(args);
+            break;
+        default:
+            ShowHelp();
+            break;
+    }
 }
 /**** Helper Functions *****/
 void ShowHelp()
 {
-    WriteLine("-f     Run Fractions Demo");
+    WriteLine("-f          Run Fractions Demo");
+    WriteLine("-q <path>   Run Scantron Demo");
 }

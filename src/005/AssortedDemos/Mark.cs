@@ -7,7 +7,7 @@ public class Mark
 {
     public int Possible { get; }
     public int Earned { get; }
-    public double Average { get { return (double) Earned / Possible; } }
+    public double Average { get { return 100.0 * Earned / Possible; } }
 
     public Mark(int possible, int earned)
     {
