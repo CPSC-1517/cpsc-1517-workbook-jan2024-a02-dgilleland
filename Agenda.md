@@ -144,6 +144,11 @@
 
 ----
 
+## Feb 5
+
+- [ ] Multiple Choice Quiz
+- [ ] Exercise 1 Solution
+
 ## *Future - TBD*
 
 - [ ] Resume **WindChill** demo
