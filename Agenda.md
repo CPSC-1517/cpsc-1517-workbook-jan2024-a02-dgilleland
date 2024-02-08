@@ -157,6 +157,7 @@
 
 - [ ] Exercise 2 Addendum
   - [ ] Notes & video
+- [ ] Comments on Quiz 1
 - [ ] Blazor Web Application Intro
 
     ```ps
