@@ -149,6 +149,23 @@
 - [ ] Multiple Choice Quiz
 - [ ] Exercise 1 Solution
 
+## Feb 6
+
+> *Lab time (by request)*
+
+## Feb 8
+
+- [ ] Exercise 2 Addendum
+  - [ ] Notes & video
+- [ ] Blazor Web Application Intro
+
+    ```ps
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/006 ./src/006
+    ```
+
+
+----
+
 ## *Future - TBD*
 
 - [ ] Resume **WindChill** demo
@@ -160,3 +177,4 @@
   - [ ] [Interfaces](https://programming-0101.github.io/slides/OOP-Ramp-Up/08-Interface.html)
   - [ ] [EF Core](https://programming-0101.github.io/slides/OOP-Ramp-Up/15-EF-Core.html)
   - [ ] [~~Unit Tests~~](https://programming-0101.github.io/slides/UnitTests/index.html)
+
