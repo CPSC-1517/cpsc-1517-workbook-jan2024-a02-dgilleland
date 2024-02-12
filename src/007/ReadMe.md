@@ -39,6 +39,8 @@ Run the following in the terminal to start up a solution with a Blazor 8 website
     dotnet watch
     ```
 
+When you view your website, the first thing you should notice is that its appearance is very, very "plain". This empty template makes no real assumptions about how the site should be styled.
+
 ### No-Class (*Classless*) Styling
 
 **"No-class"** styling brings the benefit of allowing your HTML to be "clean" and focused on the *content* of your website/application. They say "Content is King", but that's only lip-service if you wind up butchering your HTML with CSS classes and nesting `<div>`s just to get it to "look good".
@@ -62,9 +64,9 @@ Alternatively, use the following for the fluid viewport of [classless Pico CSS](
 
 #### Give Your Site Some Structure
 
-Make changes to your **`MainLayout.razor`** component so that it matches the following. Observe the changes in the appearance of your site as a result of these changes.
+The whole purpose of the **`MainLayout.razor`** component is to add some layout and structure to your website. It's content is primarily meant to represent a "shell" of HTML that makes up the `<body>` element. The `@Body` variable references the page-specific content that is injected into the overall page as it is rendered by the web server. Make changes to your `MainLayout.razor` so that it matches the following. Observe the effect of these changes in the appearance of your site.
 
-```html
+```razor
 @inherits LayoutComponentBase
 
 <nav class="container-fluid">
@@ -81,7 +83,7 @@ Make changes to your **`MainLayout.razor`** component so that it matches the fol
 <main class="container">
     @Body
 </main>
-<footer data-theme="dark">
+<footer class="container" data-theme="dark">
     <hr />
     <ul>
         <li>Based on the Blazor 8 (Empty) template.</li>
