@@ -33,7 +33,7 @@ The following table shows the commands to run to get a listing of what files are
 
 ### 'Bout Bootstrap
 
-The default template uses Bootstrap for its layout and styling. While great in its day, Bootstrap is now considered as a "heavy" legacy layout approach. Modern designers use CSS Grid for layout along with other CSS advances to produce stunning and flexible layouts with minimal effort.
+The default template uses Bootstrap for its layout and styling. While great in its day, Bootstrap is now considered as a "heavy" legacy layout approach. Modern designers use CSS Grid for layout along with other CSS advances to produce stunning and flexible layouts while maintaining a "semantic" approach to their HTML (see [here](https://web.dev/learn/html/semantic-html/) and [here](https://www.semrush.com/blog/semantic-html5-guide/) for a good introduction to semantic HTML).
 
 ## Starting With a Clean Slate
 
