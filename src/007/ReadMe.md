@@ -1,23 +1,6 @@
 # Blazor 8 - Empty Template
 
-For setup in this
-
-- [ ] Create a Blazor 8 web application (empty template - notice the `-e`)
-
-    ```powershell
-    # Run from the root of your workbook
-    dotnet new blazor -o src/007/Website -n WebApp -e
-    dotnet new sln -o src/007 -n EmptyBlazorDemo
-    cd src/007
-    dotnet sln add Website/WebApp.csproj
-    cd Website
-    ```
-
-- [ ] Run the blazor website (in watch mode)
-
-    ```powershell
-    dotnet watch
-    ```
+In this lesson we will explore the use of the empty template option when creating Blazor 8 web applications.
 
 ----
 
@@ -37,17 +20,34 @@ The default template uses Bootstrap for its layout and styling. While great in i
 
 ## Starting With a Clean Slate
 
-Run `dotnet new blazor -n WebApp -o Website -e` in the terminal to start up a website with the empty template. Then add a solution file (`dotnet new sln -n LearnBlazor -o .`) that will reference the web app (`dotnet sln add Website/WebApp.csproj`).
+Run the following in the terminal to start up a solution with a Blazor 8 website using the empty template.
+
+- [ ] Create a Blazor 8 web application (empty template - notice the `-e`)
+
+    ```powershell
+    # Run from the root of your workbook
+    dotnet new blazor -o src/007/Website -n WebApp -e
+    dotnet new sln -o src/007 -n EmptyBlazorDemo
+    cd src/007
+    dotnet sln add Website/WebApp.csproj
+    cd Website
+    ```
+
+- [ ] Run the blazor website (in watch mode)
+
+    ```powershell
+    dotnet watch
+    ```
 
 ### No-Class (*Classless*) Styling
 
 **"No-class"** styling brings the benefit of allowing your HTML to be "clean" and focused on the *content* of your website/application. They say "Content is King", but that's only lip-service if you wind up butchering your HTML with CSS classes and nesting `<div>`s just to get it to "look good".
 
-> For a good look at various no-class stylesheets, take a look at the Sep '23 article [**"Comparing classless CSS frameworks"**](https://blog.logrocket.com/comparing-classless-css-frameworks/) by Shalitha Suranga. An older list that includes other classless frameworks can be seen in the article ["No-Class CSS Frameworks"](https://css-tricks.com/no-class-css-frameworks/) (May, 2020).
+> For a nice overview of various no-class stylesheets, take a look at the Sep '23 article [**"Comparing classless CSS frameworks"**](https://blog.logrocket.com/comparing-classless-css-frameworks/) by Shalitha Suranga. An older list that includes other classless frameworks can be seen in the article ["No-Class CSS Frameworks"](https://css-tricks.com/no-class-css-frameworks/) (May, 2020).
 
 #### [Pico CSS](https://picocss.com/)
 
-Add the following line to the `<head>` of the `App.razor` component. ***NOTE:** the portions that read `@@picocss` and `pico@@1` each have an extra `@` because of how Razor pages (the foundation for Blazor) use that as a way of identifying variables; the double `@@` "escapes" so that a single `@` symbol will appear in the rendered HTML.*
+Add the following line to the `<head>` of the **`App.razor`** component. ***NOTE:** the portions that read `@@picocss` and `pico@@1` each have an extra `@` because of how Razor pages (the foundation for Blazor) use that as a way of identifying variables; the double `@@` "escapes" so that a single `@` symbol will appear in the rendered HTML.*
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@@1/css/pico.min.css">
@@ -59,6 +59,117 @@ Alternatively, use the following for the fluid viewport of [classless Pico CSS](
 // Fluid viewport
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.fluid.classless.min.css">
 ```
+
+#### Give Your Site Some Structure
+
+Make changes to your **`MainLayout.razor`** component so that it matches the following. Observe the changes in the appearance of your site as a result of these changes.
+
+```html
+@inherits LayoutComponentBase
+
+<nav class="container-fluid">
+    <ul>
+        <li><img alt="logo" src="/icons8-internet-laces-72.png" /></li>
+        <li><strong>Blazor 8</strong></li>
+    </ul>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/weather">Weather</a></li>
+        <li><a href="#" role="button">Button</a></li>
+    </ul>
+</nav>
+<main class="container">
+    @Body
+</main>
+<footer data-theme="dark">
+    <hr />
+    <ul>
+        <li>Based on the Blazor 8 (Empty) template.</li>
+        <li>Using the <a href="https://picocss.com/" target="_blank">PicoCSS</a> No-Class Stylesheet.</li>
+        <li><a target="_blank" href="https://icons8.com/icon/eTJ3Q9REJ1nH/internet">Internet</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>.</li>          
+    </ul>
+    <p>&copy; 2024 - Instructor Dan</p>
+</footer>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+```
+
+### Bring Back the Weather
+
+Add another file in your `Pages` folder of components, and name it `Weather.razor`. Include the following as the content for that page.
+
+```razor
+@page "/weather"
+@attribute [StreamRendering]
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates showing data.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+
+        var startDate = DateOnly.FromDateTime(DateTime.Now);
+        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        {
+            Date = startDate.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = summaries[Random.Shared.Next(summaries.Length)]
+        }).ToArray();
+    }
+
+    private class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+        public int TemperatureC { get; set; }
+        public string? Summary { get; set; }
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
+```
+
+----
 
 ## A Little Bit of Bling
 
