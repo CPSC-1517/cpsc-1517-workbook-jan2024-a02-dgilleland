@@ -164,6 +164,32 @@
     pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/006 ./src/006
     ```
 
+----
+
+## Feb 12 (W6)
+
+- [ ] Exercise 2 Solution
+- [ ] Classless CSS in Blazor 8
+
+    ```ps
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/007 ./src/007
+    ```
+
+
+
+## Feb 13
+
+- [ ] **Quiz 1**
+
+## Feb 15
+
+- [ ] HTML Form Elements (In Blazor 8)
+
+    ```ps
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/008 ./src/008
+    ```
+
+
 
 ----
 
