@@ -171,6 +171,14 @@ else
 }
 ```
 
+### Try Another Stylesheet
+
+In your `App.razor` component, replace the Pico CSS reference with the following and observe how the style of your site has been changed without any re-arrangement of your existing HTML.
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+```
+
 ----
 
 ## A Little Bit of Bling
@@ -184,7 +192,6 @@ Put your desired favicon in the `wwwroot` folder, and add the following to the `
 ```
 
 ----
-
 
 ### Credits
 
