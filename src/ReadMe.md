@@ -58,4 +58,7 @@ There are three things you must continually master as you go through your IT car
 - 002 - More Markdown
 - 003 - Intro to C# in VS Code: Projects and Solutions
 - 004 - Top-Level Programs
-- 005 - 
+- 005 - Assorted C# Classes and Unit Tests
+- 006 - Blazor Intro
+- 007 - Blazor Empty Templates
+- 008 - HTML Form Elements in Blazor
