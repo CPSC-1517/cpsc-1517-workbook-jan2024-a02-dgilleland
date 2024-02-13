@@ -1,6 +1,6 @@
 # Agenda
 
-> These are my notes on what I plan to teach in each [**upcoming class**](#jan-18). For the timeline of where we are today, see [the current schedule](./README.md#schedule).
+> These are my notes on what I plan to teach in each [**upcoming class**](#feb-15). For the timeline of where we are today, see [the current schedule](./README.md#schedule).
 >
 > ##### *... Warn those who are idle ..., encourage the disheartened, help the weak, be patient with everyone.*
 >
@@ -174,6 +174,8 @@
 ## Feb 13
 
 - [ ] **Quiz 1**
+
+  ![Quiz 1](./docs/images/Quiz1.png)
 
 ## Feb 15
 
