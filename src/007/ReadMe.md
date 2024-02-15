@@ -191,6 +191,27 @@ Put your desired favicon in the `wwwroot` folder, and add the following to the `
 <link rel="icon" type="image/png" href="/favicon.png">
 ```
 
+### ~~Font~~*Line*Awesome
+
+If you've heard of Font-Awesome, then you need to take a look at LineAwesome.
+
+Add the following to the `<head>` element of your Blazor application.
+
+```html
+<link rel= "stylesheet"
+      href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
+```
+
+Then, change your `<nav>` links to include icons in the link, as follows:
+
+```html
+<ul>
+    <li><a href="/"><i class="las la-home"></i> Home</a></li>
+    <li><a href="/weather"><i class="las la-wind"></i> Weather</a></li>
+    <li><a href="#" role="button"><i class="las la-sitemap"></i> Button</a></li>
+</ul>
+```
+
 ----
 
 ### Credits
