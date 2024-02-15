@@ -202,6 +202,7 @@
     - [ ] [ASP.NET Core Blazor forms binding](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/binding?view=aspnetcore-8.0)
     - [ ] [ASP.NET Core Blazor forms validation](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation?view=aspnetcore-8.0)
     - [ ] [Troubleshoot ASP.NET Core Blazor forms](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/troubleshoot?view=aspnetcore-8.0)
+    - [ ] [Model Binding in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-8.0)
     - [ ] [Work with images in ASP.NET Core Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/images?view=aspnetcore-8.0)
     - [ ] [ASP.NET Core Blazor QuickGrid component](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-8.0)
 
@@ -230,9 +231,14 @@
   - [ ] [Interfaces](https://programming-0101.github.io/slides/OOP-Ramp-Up/08-Interface.html)
   - [ ] [EF Core](https://programming-0101.github.io/slides/OOP-Ramp-Up/15-EF-Core.html)
   - [ ] [~~Unit Tests~~](https://programming-0101.github.io/slides/UnitTests/index.html)
-- [ ] Blazor Articles (MS)
+- [ ] Blazor Articles (from Microsoft)
   - [ ] [ASP.NET Core built-in Razor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/built-in-components?view=aspnetcore-8.0) - Lists the built-in Blazor components with links to resources (e.g.: [NavLink](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-8.0#navlink-component))
   - [ ] [**ASP.NET Core Blazor with Entity Framework Core (EF Core)**](https://learn.microsoft.com/en-us/aspnet/core/blazor/blazor-ef-core?view=aspnetcore-8.0)
   - [ ] [**Safe storage of app secrets in development in ASP.NET Core**](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows)
   - [ ] [ASP.NET Core Best Practices](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices?view=aspnetcore-8.0)
     - [ ] [*Reliable web app patterns*](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices?view=aspnetcore-8.0#reliable-web-app-patterns)
+- [ ] Other Articles
+  - [ ] FYI Reading relevant to .NET 7 & 8: ⁠[**Why doesn't my ASP.NET Core 7 web app launch on HTTPS?**](https://www.mikesdotnetting.com/article/366/why-doesnt-my-asp-net-core-7-web-app-launch-on-https)
+  - [ ] [Executing async operations onchange in Blazor](https://www.mikesdotnetting.com/article/365/executing-async-operations-onchange-in-blazor)
+  - [ ] [A reusable generic autocomplete component for Blazor](https://www.mikesdotnetting.com/article/363/a-reusable-generic-autocomplete-component-for-blazor)
+  - [ ] [*Mike's Dotnetting*](https://www.mikesdotnetting.com/) is an excellent blog for the quality of articles.
