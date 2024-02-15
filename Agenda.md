@@ -168,6 +168,10 @@
   - [ ] Read the following:
     - [ ] [**ASP.NET Core Blazor**](https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0)
     - [ ] [**ASP.NET Core Blazor project structure**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0)
+    - [ ] [**Layout in ASP.NET Core**](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/layout?view=aspnetcore-8.0)
+    - [ ] [**Razor syntax reference for ASP.NET Core**](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-8.0)
+    - [ ] [**ASP.NET Core Razor components**](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-8.0)
+    - [ ] [**ASP.NET Core Razor component lifecycle**](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-8.0)
 
 ----
 
@@ -191,7 +195,7 @@
     ```
 
 - [ ] **Homework!**
-  - [ ] Read the following:
+  - [ ] Read the following (along with readings added to [*Feb 8*](#feb-8)):
     - [ ] [**ASP.NET Core Blazor project structure**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0)
     - [ ] [ASP.NET Core Blazor forms overview](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-8.0)
     - [ ] [ASP.NET Core Blazor input components](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/input-components?view=aspnetcore-8.0)
@@ -199,6 +203,7 @@
     - [ ] [ASP.NET Core Blazor forms validation](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation?view=aspnetcore-8.0)
     - [ ] [Troubleshoot ASP.NET Core Blazor forms](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/troubleshoot?view=aspnetcore-8.0)
     - [ ] [Work with images in ASP.NET Core Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/images?view=aspnetcore-8.0)
+    - [ ] [ASP.NET Core Blazor QuickGrid component](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-8.0)
 
 ----
 
@@ -225,4 +230,9 @@
   - [ ] [Interfaces](https://programming-0101.github.io/slides/OOP-Ramp-Up/08-Interface.html)
   - [ ] [EF Core](https://programming-0101.github.io/slides/OOP-Ramp-Up/15-EF-Core.html)
   - [ ] [~~Unit Tests~~](https://programming-0101.github.io/slides/UnitTests/index.html)
-
+- [ ] Blazor Articles (MS)
+  - [ ] [ASP.NET Core built-in Razor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/built-in-components?view=aspnetcore-8.0) - Lists the built-in Blazor components with links to resources (e.g.: [NavLink](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-8.0#navlink-component))
+  - [ ] [**ASP.NET Core Blazor with Entity Framework Core (EF Core)**](https://learn.microsoft.com/en-us/aspnet/core/blazor/blazor-ef-core?view=aspnetcore-8.0)
+  - [ ] [**Safe storage of app secrets in development in ASP.NET Core**](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows)
+  - [ ] [ASP.NET Core Best Practices](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices?view=aspnetcore-8.0)
+    - [ ] [*Reliable web app patterns*](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices?view=aspnetcore-8.0#reliable-web-app-patterns)
