@@ -20,3 +20,6 @@
     ```
 
 - [ ] Tour of the HTML Form Elements/Tags
+  - [ ] Modeling form inputs as related data (classes/records)
+  - [ ] HTML Inputs vs Blazor Inputs
+  - [ ] Validation
