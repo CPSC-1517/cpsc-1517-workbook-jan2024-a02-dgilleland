@@ -193,7 +193,7 @@ Put your desired favicon in the `wwwroot` folder, and add the following to the `
 
 ### ~~Font~~*Line*Awesome
 
-If you've heard of Font-Awesome, then you need to take a look at LineAwesome.
+If you've heard of Font-Awesome, then you need to take a look at [**Line-Awesome**](https://icons8.com/line-awesome).
 
 Add the following to the `<head>` element of your Blazor application.
 
