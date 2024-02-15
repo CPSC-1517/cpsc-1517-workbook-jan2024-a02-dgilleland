@@ -49,22 +49,22 @@ When you view your website, the first thing you should notice is that its appear
 
 #### [Pico CSS](https://picocss.com/)
 
-Add the following line to the `<head>` of the **`App.razor`** component. ***NOTE:** the portions that read `@@picocss` and `pico@@1` each have an extra `@` because of how Razor pages (the foundation for Blazor) use that as a way of identifying variables; the double `@@` "escapes" so that a single `@` symbol will appear in the rendered HTML.*
+Add the following line to the `<head>` of the **`App.razor`** component. ***NOTE:** the portions that read `@@picocss` and `pico@@2` each have an extra `@` because of how Razor pages (the foundation for Blazor) use that as a way of identifying variables; the double `@@` "escapes" so that a single `@` symbol will appear in the rendered HTML.*
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@@1/css/pico.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@@2/css/pico.min.css">
 ``` 
 
 Alternatively, use the following for the fluid viewport of [classless Pico CSS](https://picocss.com/docs/classless.html).
 
 ```html
 // Fluid viewport
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.fluid.classless.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@@2/css/pico.fluid.classless.min.css">
 ```
 
 #### Give Your Site Some Structure
 
-The whole purpose of the **`MainLayout.razor`** component is to add some layout and structure to your website. It's content is primarily meant to represent a "shell" of HTML that makes up the `<body>` element. The `@Body` variable references the page-specific content that is injected into the overall page as it is rendered by the web server. Make changes to your `MainLayout.razor` so that it matches the following. Observe the effect of these changes in the appearance of your site.
+The whole purpose of the **`MainLayout.razor`** component is to add some layout and structure to your website. Its content is primarily meant to represent a "shell" of HTML that makes up the `<body>` element. The `@Body` variable references the page-specific content that is injected into the overall page as it is rendered by the web server. Make changes to your `MainLayout.razor` so that it matches the following. Observe the effect of these changes in the appearance of your site.
 
 ```razor
 @inherits LayoutComponentBase
@@ -185,7 +185,7 @@ In your `App.razor` component, replace the Pico CSS reference with the following
 
 ### Adding a FavIcon
 
-Put your desired favicon in the `wwwroot` folder, and add the following to the `<head>` of your `App.razor` file. You may have to adjust the `type` and `href` portions to match the kind of image you are using as your favicon (the sample below uses a png file: ![favicon](./Website/wwwroot/favicon.png)).
+Put your desired favicon in the `wwwroot` folder, and add the following to the `<head>` of your `App.razor` file. You may have to adjust the `type` and `href` portions to match the kind of image you are using as your favicon (the sample below uses a png file: ![favicon](./_move_to_wwwroot/icons8-internet-laces-16.png)).
 
 ```html
 <link rel="icon" type="image/png" href="/favicon.png">
