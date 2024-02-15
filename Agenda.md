@@ -201,6 +201,7 @@
     - [ ] [ASP.NET Core Blazor input components](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/input-components?view=aspnetcore-8.0)
     - [ ] [ASP.NET Core Blazor forms binding](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/binding?view=aspnetcore-8.0)
     - [ ] [ASP.NET Core Blazor forms validation](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation?view=aspnetcore-8.0)
+    - [ ] [Working with Dates And Times in Razor Pages Forms](https://www.mikesdotnetting.com/article/352/working-with-dates-and-times-in-razor-pages-forms)
     - [ ] [Troubleshoot ASP.NET Core Blazor forms](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/troubleshoot?view=aspnetcore-8.0)
     - [ ] [Model Binding in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-8.0)
     - [ ] [Work with images in ASP.NET Core Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/images?view=aspnetcore-8.0)
@@ -214,6 +215,16 @@
 
     ```ps
     pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/008 ./src/008
+    ```
+
+
+## Feb 29
+
+- [ ] Reports and CSV Data
+  - [ ] Begin the *Weather-or-Not* demo
+
+    ```ps
+    pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a02-dgilleland/src/009 ./src/009
     ```
 
 
@@ -242,3 +253,7 @@
   - [ ] [Executing async operations onchange in Blazor](https://www.mikesdotnetting.com/article/365/executing-async-operations-onchange-in-blazor)
   - [ ] [A reusable generic autocomplete component for Blazor](https://www.mikesdotnetting.com/article/363/a-reusable-generic-autocomplete-component-for-blazor)
   - [ ] [*Mike's Dotnetting*](https://www.mikesdotnetting.com/) is an excellent blog for the quality of articles.
+
+### RnD
+
+- [ ] https://github.com/tossnet/Blazor-Calendar
