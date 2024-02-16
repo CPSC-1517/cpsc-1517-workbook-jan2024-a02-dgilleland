@@ -166,6 +166,7 @@
 
 - [ ] **Homework!**
   - [ ] Read the following:
+    - [ ] [**ASP.NET Documentation**](https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0) *(Entry point to learn more about ASP.NET)*
     - [ ] [**ASP.NET Core Blazor**](https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0)
     - [ ] [**ASP.NET Core Blazor project structure**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0)
     - [ ] [**Layout in ASP.NET Core**](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/layout?view=aspnetcore-8.0)
