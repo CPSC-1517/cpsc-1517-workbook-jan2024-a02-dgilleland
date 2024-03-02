@@ -1,10 +1,25 @@
 # Agenda
 
-> These are my notes on what I plan to teach in each [**upcoming class**](#feb-15). For the timeline of where we are today, see [the current schedule](./README.md#schedule).
+> These are my notes on what I plan to teach in each [**upcoming class**](#feb-29). For the timeline of where we are today, see [the current schedule](./README.md#schedule).
 >
 > ##### *... Warn those who are idle ..., encourage the disheartened, help the weak, be patient with everyone.*
 >
 > > My philosophy of teaching, taken from [the source](https://www.bible.com/bible/111/1TH.5.14.NIV)
+
+## Code Samples
+
+Are you interested in grabbing my code samples? Here's a quick script that you can run in the terminal from the root of your own repository to grab all of my code samples and place them inside a folder called `~/dan/`.
+
+```ps
+# Ensure your terminal is open at the ROOT of your workbook!
+pnpm dlx tiged --disable-cache --force CPSC-1517/cpsc-1517-workbook-jan2024-a01-dgilleland/src ./dan
+```
+
+If you *don't* want my samples to be included in your own repository's history, then change the last part from `./dan` to `./rnd`.
+
+Note that each time you run this, it will overwrite the existing content in that folder; that makes it easy to keep up-to-date with my changes. Use your own `~/src/` folder for your personal demos and practices attempts. Detail on how the script works can be found in the [`~/src/ReadMe.md`](./src/ReadMe.md) file.
+
+----
 
 ## Jan 8 (W1)
 
@@ -212,9 +227,9 @@
 
 ## Reading Break
 
-|| Reading Week - Feb 12-16, 2024 |
+| Feb 12-16, 2024 | Showing Appreciation |
 |:--:|:---|
-| ![book](./docs/images/storyline-top-book.png) | What takes you 5 minutes to read may take 40 minutes to write with additional background time spent researching and verifying the content. |
+| ![book](./docs/images/storyline-top-book.png) | What takes you 5 minutes to read may take 40 minutes to write with additional background time spent researching and verifying the content. Take time to appreciate that what you are consuming in such a short time has taken exponentially more time to produce. Share the appreciation for what you receive. |
 
 ----
 
@@ -257,6 +272,8 @@
 ----
 
 ## *Future - TBD*
+
+> ***TODO:** Consolodate these ideas with the other section (Beyond Compare)*
 
 - [ ] Resume **WindChill** demo
   - [ ] version 2 - 
