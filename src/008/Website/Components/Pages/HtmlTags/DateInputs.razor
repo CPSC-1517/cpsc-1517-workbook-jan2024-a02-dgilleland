@@ -1,0 +1,238 @@
+﻿@page "/HtmlTags/dates"
+@rendermode InteractiveServer
+
+<PageTitle>HTML Tags - Date/Time Inputs</PageTitle>
+
+<h1>Date/Time Inputs</h1>
+<p>Describe. <i>Click the accordian titles below to view each demo.</i></p>
+<article>
+    <details>
+        <summary role="button" class="secondary">Capturing <b>Date</b> Only</summary>
+        <label  for="start">Start date:</label>
+        <input  type="date" id="start" name="trip-start" 
+                @bind-value="StartDate"
+                min="@FromToday(-2)" 
+                max="@FromToday(10)" />
+
+        <button type="button" @onclick="ClearStartDate">Clear</button>
+        @code {
+            private string FromToday(int days)
+            {
+                var date = DateTime.Today.AddDays(days);
+                return DateOnly.FromDateTime(date).ToShortDateString();
+            }
+            private DateOnly? StartDate;
+            private void ClearStartDate()
+            {
+                StartDate = null;
+            }
+        }
+        <p>This example is adapted from the MDN article on using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date" target="_blank">Date</a> type for input elements.</p>
+        <blockquote>
+            @StartDate?.ToLongDateString()
+            <footer><cite>&ndash; Output will appear above</cite></footer>
+        </blockquote>
+    </details>
+
+    <details>
+        <summary role="button" class="secondary">Capturing <b>Time</b> Only</summary>
+        <label  for="appt">Choose a time for your meeting:</label>
+        <input  type="time" id="appt" name="appt" min="09:00" max="18:00"
+                @bind-value="MeetingTime" />
+        <small>Office hours are 9am to 6pm</small>
+
+        <button type="button" @onclick="ClearMeetingTime">Clear</button>
+        @code {
+            private TimeOnly? MeetingTime;
+            private void ClearMeetingTime()
+            {
+                MeetingTime = null;
+            }
+        }
+        <p>This example is adapted from the MDN article on using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time" target="_blank">Time</a> type for input elements.</p>
+        <blockquote>
+            @MeetingTime?.ToLongTimeString()
+            <footer><cite>&ndash; Output will appear above</cite></footer>
+        </blockquote>
+    </details>
+
+    <details>
+        <summary role="button" class="secondary"><b>Date</b> and <b>Time</b></summary>
+        <label for="meeting-time">Choose a time for your appointment:</label>
+
+        <input  type="datetime-local" id="meeting-time"
+                @bind-value="Appointment" />
+        @code {
+            private DateTime? Appointment;
+        }
+        <p>This example is adapted from the MDN article on using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local" target="_blank">Local Date/Time</a> type for input elements.</p>
+        <blockquote>
+            @Appointment?.ToString()
+            <footer><cite>&ndash; Output will appear above</cite></footer>
+        </blockquote>
+    </details>
+
+    <details>
+        <summary role="button" class="secondary">Capturing <b>Week</b> and <b>Month</b></summary>
+        <p>Let's have some fun by playing with the more <em>abstract</em> date inputs. Assuming you get a job soon after graduating, when during the summer would you hope to have some holidays?</p>
+        <p><i>Try navigating from each of these inputs by pressing the <kbd>tab</kbd> key after providing your input.</i></p>
+        <fieldset class="grid">
+            <legend>Work and Benefits</legend>
+            <label>Month after graduation
+                <input type="month" @bind-value="StartMonth" @onblur="HandleBlur" />
+            </label>
+
+            <label title="Choose a week in the summer after graduation">Holiday Start
+                <input type="week" id="camp-week" @bind-value="CampWeek" @onblur="HandleBlur" />
+            </label>
+            
+            <label title="How many days off do you plan for summer holidays?">Duration
+                <input type="number" id="holiday-duration" min="0" max="10" @bind-value="Duration" @onblur="HandleBlur" />
+            </label>
+        </fieldset>
+        <button type="button" @onclick="ClearHolidays">Clear Holiday Plans</button>
+        <hr />
+        <p>Look to the MDN articles on using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/week" target="_blank">Week</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/month" target="_blank">Month</a> type for input elements.</p>
+        @* Look below the <blockquote> for the code block; it's quite lengthy *@
+        <blockquote>
+            @WorkAndPlay
+            <hr />
+            <mark>Diagnostics:</mark>
+            <ul>
+                <li>@nameof(StartMonth): @StartMonth</li>
+                <li>@nameof(CampWeek): @CampWeek</li>
+                <li>@nameof(Duration): @Duration</li>
+            </ul>
+            <footer><cite>&ndash; Output will appear above</cite></footer>
+        </blockquote>
+        <p>Calculations for the <code>@nameof(CustomDate)</code> type used in this example were partially supplied by AI (and should be checked for veracity).</p>
+        @code {
+            private DateTime StartMonth;
+            private string? CampWeek;
+            private int? Duration;
+
+            protected override void OnInitialized()
+            {
+                StartMonth = DateTime.Today;
+            }
+
+            private void ClearHolidays(MouseEventArgs e)
+            {
+                CampWeek = null;
+                Duration = null;
+            }        
+
+            private string? WorkAndPlay;
+            private void HandleBlur()
+            {
+                // Any of StartMonth, CampWeek, or Duration may have changed.
+                // Update the appropriate info for the outputs
+                CustomDate workStart, holidayStart;
+                workStart = new(StartMonth);
+                if(!string.IsNullOrEmpty(CampWeek))
+                {
+                    var parts = CampWeek.Split('-');
+                    try
+                    {
+                        
+                        int year = int.Parse(parts[0]);
+                        int weekNumber = int.Parse(parts[1].Replace("W", ""));
+                        holidayStart = new(CustomDate.GetDateFromWeek(year,weekNumber));
+                        WorkAndPlay = $"Assuming you start work in {workStart.ToString(CustomDate.Format.Year_MonthName)} and you plan for holidays in {holidayStart.MonthName} ({CampWeek}), I can make some assumptions about your prospects for holidays that first year.";
+                        if(Duration.HasValue)
+                        {
+                            switch(Duration.Value)
+                            {
+                                case > 5:
+                                    WorkAndPlay += $" You might be able to get a short holiday of {Duration} days";
+                                    break;
+                                default:
+                                    WorkAndPlay += $" You would be very fortunate to get {Duration} holidays in the first year of employment.";
+                                    break;
+                            }
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        WorkAndPlay = CampWeek + ">< " + string.Join(',', parts) + " >< " + ex.StackTrace;
+                    }
+                }
+                else
+                {
+                    WorkAndPlay = $"I need more info. Currently, you have given me a hopeful start date of employment beginning {workStart.ToString(CustomDate.Format.MonthName_Year)}.";
+                }
+            }
+
+            private class CustomDate
+            {
+                public enum Format { Year_Month, Year_MonthName, MonthName_Year, Month_Year, Year_Week }
+                public CustomDate(string fromText)
+                {
+                    
+                }
+                public CustomDate(DateTime fromDateTime)
+                {
+                    _Basis = fromDateTime;
+                }
+                
+                private DateTime _Basis;
+                public int Year => _Basis.Year;
+                public int Month => _Basis.Month;
+                public string MonthName => System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month);
+                /// <summary>Based on the ISO8601 standard for what constitutes the start of the year</summary
+                public int WeekOfYear
+                {
+                    get
+                    {
+                        var adjusted = _Basis;
+                        DayOfWeek day = System.Globalization.CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(adjusted);
+                        if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+                        {
+                            adjusted = _Basis.AddDays(3);
+                        }
+                        int result = System.Globalization.CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(
+                            adjusted, System.Globalization.CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+                        return result;
+                    }
+                }
+
+                public override string ToString()
+                {
+                    return $"{Year}-{Month}";
+                }
+                public string ToString(Format format)
+                {
+                    string result = ToString();
+                    switch(format)
+                    {
+                        case Format.Year_MonthName:
+                            result = $"{Year}, {MonthName}";
+                            break;
+                        case Format.MonthName_Year:
+                            result = $"{MonthName} {Year}";
+                            break;
+                        case Format.Month_Year:
+                            result = $"{Month}-{Year}";
+                            break;
+                    }
+                    return result;
+                }
+                public static DateTime GetDateFromWeek(int year, int weekNumber)
+                {
+                    // TODO: This seriously needs some testing....
+                    // Determine the first day of the week (Monday)
+                    DateTime jan1 = new DateTime(year, 1, 1);
+                    int daysToFirstMonday = (int)DayOfWeek.Monday - (int)jan1.DayOfWeek;
+                    if (daysToFirstMonday < 0)
+                        daysToFirstMonday += 7; // Ensure positive value
+                    DateTime firstMonday = jan1.AddDays(daysToFirstMonday);
+
+                    // Calculate the date based on the week number
+                    DateTime targetDate = firstMonday.AddDays((weekNumber - 1) * 7);
+
+                    return targetDate.Date; // Return DateOnly value
+                }
+            }
+        }
+    </details>
+</article>
