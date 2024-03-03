@@ -14,7 +14,9 @@ And here is a short sample from the provided [data file](./HistoricalWeather/ope
 ```csv
 latitude,longitude,elevation,utc_offset_seconds,timezone,timezone_abbreviation
 53.60281,-113.27586,614.0,-25200,America/Edmonton,MST
+```
 
+```csv
 time,temperature_2m (°C),wind_speed_10m (km/h),wind_gusts_10m (km/h)
 2024-01-30T00:00,3.7,14.1,23.0
 2024-01-30T01:00,4.7,16.5,25.9
