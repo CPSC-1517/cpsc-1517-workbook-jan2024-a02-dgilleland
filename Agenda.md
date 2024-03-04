@@ -258,7 +258,15 @@ Note that each time you run this, it will overwrite the existing content in that
     dotnet watch
     ```
 
+----
+
 ## Mar 4
+
+- [ ] Blazor Input Controls for Forms
+  - [ ] Present updates to the [008](./src/008/ReadMe.md) resources/demo
+  - [ ] Discuss the [Common Controls](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/input-components?view=aspnetcore-8.0#input-components) for Blazor forms and the use of the `<EditForm>` Component.
+
+## Mar 5
 
 - [ ] Reports and CSV Data
   - [ ] Begin the *Weather-or-Not* demo
