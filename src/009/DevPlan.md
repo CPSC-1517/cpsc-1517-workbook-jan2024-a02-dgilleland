@@ -47,3 +47,18 @@ In addition, the `WeatherSystem` will need some classes that allow access to the
 Typically, we would use a TDD process to build the system using automated tests to guide our understanding of the requirements of our application. Additionally, the tests would give us a sense of confidence in the stability of our system as we move forward and make adjustments in the face of changing requirements. We won't be following TDD strictly in this example, but we will make use of it in key areas.
 
 One of those key areas has to do with reading and writing the information from the CSV files. Because this will involve having to generates lines of CSV as well as parse those lines back into our POCO/DTO classes, a good approach is to ensure our `.Parse()` and `.ToString()` methods correctly "round-trip" the data. In other words, if I can use a CSV string as the basis for parsing and generating my DTO/POCO instances, then calling the `.ToString()` on those objects should generate the original CSV string.
+
+To include a project to test the heart of our system, we'll run the following from the folder that holds our `.sln`
+
+```ps
+dotnet new xunit -n WeatherSystem.Specs -o WeatherLibrary.Specs
+cd WeatherLibrary.Specs
+dotnet add reference ../WeatherLibrary/WeatherSystem.csproj
+dotnet add package FluentAssertions
+```
+
+I'll include the unit test project in my solution
+
+```ps
+dotnet sln add WeatherLibrary.Specs/WeatherSystem.Specs.csproj
+```
