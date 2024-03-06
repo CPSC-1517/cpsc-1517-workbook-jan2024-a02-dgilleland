@@ -63,13 +63,13 @@ I'll include the unit test project in my solution
 dotnet sln add WeatherLibrary.Specs/WeatherSystem.Specs.csproj
 ```
 
+----
+
 ## DateTime Formatting
 
-The timestamp for the weather reports is in the format `""`. For example, the value `"2024-01-30T00:00"` refers to January 30, 2024 at the very start of the day (i.e.: midnight).
+The timestamp for the weather reports is in the format `"yyyy-MM-ddTHH:mm"`. For example, the value `"2024-01-30T00:00"` refers to January 30, 2024 at the very start of the day (i.e.: midnight).
 
 Here's a discussion I had with Microsoft Copilot about converting strings to and from `DateTime` in C# while maintaining a consistent format.
-
-
 
 > ![Me](./Images/Copilot-Me.png)
 > 
@@ -147,6 +147,5 @@ Here's a discussion I had with Microsoft Copilot about converting strings to and
 > This format is known as the **ISO 8601** date and time format. It's widely used for representing date and time information in a standardized way, especially in contexts like XML, JSON, and APIs. The "T" in the format separates the date part from the time part, and the colons (":") indicate the hours and minutes.
 > 
 > Feel free to use this format for consistent and interoperable date-time representations! 🕰️📅
-> 
-> ----
 
+----
