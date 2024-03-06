@@ -27,6 +27,55 @@ if(dataFlag == "-l" || dataFlag == "--location")
         WriteLine(ex.StackTrace);
     }
 }
+if(dataFlag == "-w" || dataFlag == "--weather")
+{
+    try
+    {
+        var rawData = CsvRepository.GetWeatherCSV(path);
+        ForegroundColor = ConsoleColor.Green;
+        DateOnly day = DateOnly.MinValue;
+        foreach(string row in rawData)
+        {
+            try
+            {
+                // Parse the weather
+                Weather data = Weather.Parse(row);
+                // Show the weather with WindChill if applicable
+                if(day != DateOnly.FromDateTime(data.Time))
+                {
+                    day = DateOnly.FromDateTime(data.Time);
+                    // Print a "header" for the new day
+                    ForegroundColor = ConsoleColor.DarkGreen;
+                    WriteLine(day.ToLongDateString());
+                    ForegroundColor = ConsoleColor.Green;
+                }
+                Write($"{data.Time.ToShortTimeString()} - {data.Temperature}");
+                if(data.WindChill is not null)
+                {
+                    ForegroundColor = ConsoleColor.Blue;
+                    WriteLine($" (feels like {data.WindChill.FeelsLike})");
+                    ForegroundColor = ConsoleColor.Green;
+                }
+                else
+                {
+                    WriteLine();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ForegroundColor = ConsoleColor.Magenta;
+                WriteLine(ex.Message);
+                ForegroundColor = ConsoleColor.Green;
+            }
+        }
+    }
+    catch (System.Exception ex)
+    {
+        ForegroundColor = ConsoleColor.Red;
+        WriteLine(ex.Message);
+        WriteLine(ex.StackTrace);
+    }
+}
 
 // final steps
 ResetColor();

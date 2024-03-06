@@ -9,4 +9,10 @@ public static class CsvRepository
         Location result = Location.Parse(lines[1]); // Second line of file
         return result;
     }
+
+    public static IEnumerable<string> GetWeatherCSV(string filePath)
+    {
+        string[] lines = File.ReadAllLines(filePath);
+        return lines.Skip(4);
+    }
 }

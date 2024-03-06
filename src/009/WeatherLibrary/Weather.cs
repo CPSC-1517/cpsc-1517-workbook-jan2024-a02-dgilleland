@@ -1,4 +1,6 @@
-﻿namespace WeatherSystem;
+﻿using WeatherOrNot;
+
+namespace WeatherSystem;
 
 public class Weather
 {
@@ -15,6 +17,9 @@ public class Weather
     public double Temperature { get; set; }
     public double WindSpeed { get; set; }
     public double WindGusts { get; set; }
+
+    public WindChill? WindChill => WindChill.IsRelevant(Temperature, WindSpeed) ? new(Temperature, WindSpeed) : default;
+    public WindChill? MaxWindChill => WindChill.IsRelevant(Temperature, WindGusts) ? new(Temperature, WindGusts) : default;
 
     public override string ToString()
     {
