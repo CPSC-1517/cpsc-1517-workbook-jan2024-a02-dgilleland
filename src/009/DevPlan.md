@@ -62,3 +62,91 @@ I'll include the unit test project in my solution
 ```ps
 dotnet sln add WeatherLibrary.Specs/WeatherSystem.Specs.csproj
 ```
+
+## DateTime Formatting
+
+The timestamp for the weather reports is in the format `""`. For example, the value `"2024-01-30T00:00"` refers to January 30, 2024 at the very start of the day (i.e.: midnight).
+
+Here's a discussion I had with Microsoft Copilot about converting strings to and from `DateTime` in C# while maintaining a consistent format.
+
+
+
+> ![Me](./Images/Copilot-Me.png)
+> 
+> Imagine I have a string "2024-01-30T00:00" and I want to parse it into a `DateTime` in C#. Then imagine that I want to convert it back into a string in the same format. What would my code look like?
+> 
+> ![AI](./Images/Copilot-AI.png)
+>
+> Certainly! To parse the string "2024-01-30T00:00" into a `DateTime` in C#, you can use the `DateTime.ParseExact` method. Let's break down the steps:
+> 
+> 1. **Parsing the String to DateTime**:
+> 
+>    You'll specify the expected format of the input string using a format string. In your case, the format is "yyyy-MM-ddTHH:mm". Here's how you can do it:
+> 
+>     ```csharp
+>     using System;
+> 
+>     class Program
+>     {
+>         static void Main()
+>         {
+>             string inputString = "2024-01-30T00:00";
+>             string format = "yyyy-MM-ddTHH:mm";
+> 
+>             if (DateTime.TryParseExact(inputString, format, null, DateTimeStyles.None, out DateTime parsedDateTime))
+>             {
+>                 Console.WriteLine($"Parsed DateTime: {parsedDateTime}");
+>             }
+>             else
+>             {
+>                 Console.WriteLine("Invalid input format.");
+>             }
+>         }
+>     }
+>     ```
+> 
+>    This code snippet will parse the input string into a `DateTime` object. If successful, it will print the parsed date and time.
+> 
+> 2. **Converting Back to String in the Same Format**:
+> 
+>    To convert the `DateTime` back to a string in the same format, you can use the `ToString` method with the desired format:
+> 
+>     ```csharp
+>     string formattedDateTime = parsedDateTime.ToString(format);
+>     Console.WriteLine($"Formatted DateTime: {formattedDateTime}");
+>     ```
+> 
+>    This will give you the string "2024-01-30T00:00" again.
+> 
+> Remember to adjust the format string if your input string has additional components (such as seconds or milliseconds). The `DateTimeStyles.None` parameter ensures that no additional adjustments are made during parsing.
+> 
+> Feel free to customize the code according to your specific needs! 🕰️📅
+> 
+> Source: Conversation with Bing, 2024-03-06
+> 
+> (1) Convert strings to DateTime - .NET | Microsoft Learn. https://learn.microsoft.com/en-us/dotnet/standard/base-types/parsing-datetime.
+> 
+> (2) Convert time string to DateTime in c# - Stack Overflow. https://stackoverflow.com/questions/36122397/convert-time-string-to-datetime-in-c-sharp.
+> 
+> (3) How to parse strings to DateTime in C# properly? - Stack Overflow. https://stackoverflow.com/questions/5366285/how-to-parse-strings-to-datetime-in-c-sharp-properly.
+> 
+> (4) C# - Parsing a DateTime from a string | MAKOLYTE. https://makolyte.com/csharp-parsing-a-datetime-string-with-a-custom-format/.
+> 
+> (5) c# - Converting a String to DateTime - Stack Overflow. https://stackoverflow.com/questions/919244/converting-a-string-to-datetime.
+> 
+> ----
+> 
+> ![Me](./Images/Copilot-Me.png)
+> 
+> When you call `parsedDateTime.ToString(format)`, what should the value of `format` be in order to get an output that matches a date-time like "2024-01-30T00:00"? Also, is there a name for that kind of format for date-time?
+> 
+> ![AI](./Images/Copilot-AI.png)
+>
+> Certainly! To get an output in the format "2024-01-30T00:00", you should set the value of `format` to `"yyyy-MM-ddTHH:mm"`.
+> 
+> This format is known as the **ISO 8601** date and time format. It's widely used for representing date and time information in a standardized way, especially in contexts like XML, JSON, and APIs. The "T" in the format separates the date part from the time part, and the colons (":") indicate the hours and minutes.
+> 
+> Feel free to use this format for consistent and interoperable date-time representations! 🕰️📅
+> 
+> ----
+
