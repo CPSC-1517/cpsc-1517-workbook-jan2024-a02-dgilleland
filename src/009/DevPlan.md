@@ -2,7 +2,7 @@
 
 The overall goal of this application is to present Weather data from a file and append weather recordings to the same file. To do this, we'll make use of a class library to hold the "heart" of the system and a Blazor web application to act as the front end. We'll also create a quick console front end to act as a CLI for some simple manual interactions with the system.
 
-> If you're having trouble following along with this demo project, see the [dev tips](#dev-tip-incremental-development-and-sandbox-projects) in the appendix of this document. Also, it's advised that you *journal* your development experience; writing down what you're learning and what trouble-shooting you've had to do will be a valuable resource as you progress through this course. Remember, in software development, all your learning is *cumulative*.
+> If you're having trouble following along with this demo project, see the [dev tips](#dev-tip-incremental-development-and-sandbox-projects) in the appendix to this document. Also, it's advised that you *journal* your development experience; writing down what you're learning and what trouble-shooting you've had to do will be a valuable resource as you progress through this course. Remember, in software development, all your learning is *cumulative*.
 
 ## Project Setup
 
