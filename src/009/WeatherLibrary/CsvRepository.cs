@@ -15,4 +15,9 @@ public static class CsvRepository
         string[] lines = File.ReadAllLines(filePath);
         return lines.Skip(4);
     }
+
+    public static void AddWeatherReport(string filePath, Weather record)
+    {
+        File.AppendAllLines(filePath, new string[] { record.ToString() });
+    }
 }
