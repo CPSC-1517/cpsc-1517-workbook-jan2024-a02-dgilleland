@@ -10,13 +10,20 @@ We can create a `class` to "model" or represent the data a user would input thro
 - Validation for individual properties in the data model can be done through *validation attributes*
   - *list here*
 
-## Setting Up the Form
+## Presenting Data
+
+### Using the `DataGrid` Component
+
+## User Input
 
 
-## Input Controls and Data Binding
+### Setting Up the Form
 
 
-## Processing Form Submissions
+### Input Controls and Data Binding
+
+
+### Processing Form Submissions
 
 
 ## How Component Lifecycle Affects our Form Design
