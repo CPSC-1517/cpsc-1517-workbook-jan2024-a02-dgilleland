@@ -6,7 +6,7 @@
 
 <PageTitle>View Historical Weather</PageTitle>
 
-<h3>View Historical Weather</h3>
+<h1>View Historical Weather</h1>
 
 @code {
     // Don't put any HTML tags inside a @code {} block
@@ -84,7 +84,6 @@ else
         </label>
         <button type="submit">Load Data</button>
     </EditForm>
-
 }
 
 @if (Place is not null)
@@ -115,9 +114,9 @@ else
         </div>
     }
     <QuickGrid Items="@Records">
-        <PropertyColumn Property="@(x => x.Time.ToShortTimeString())" Sortable="true" />
+        <PropertyColumn Property="@(x => x.Time.ToShortTimeString())" Sortable="true" Title="Time of Measurement" />
         <PropertyColumn Property="@(x => x.Temperature)" Sortable="false" />
         <PropertyColumn Property="@(x => x.WindSpeed)" Sortable="false" />
-        <PropertyColumn Property="@(x => x.WindChill == null ? x.WindSpeed : x.WindChill.FeelsLike)" Title="Wind Chill" />
+        <PropertyColumn Property="@(x => x.WindChill == null ? x.Temperature : x.WindChill.FeelsLike)" Title="Wind Chill" />
     </QuickGrid>
 }
