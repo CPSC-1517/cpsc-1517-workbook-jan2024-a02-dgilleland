@@ -24,7 +24,8 @@
     }
 
     private Location? Place;
-    private async Task LoadRecords()
+
+    private void LoadRecords()
     {
         if (string.IsNullOrEmpty(SelectedCsv))
         {
@@ -39,14 +40,15 @@
             StateHasChanged();
             // Use the file as the basis for loading the data
             Place = GetLocation(SelectedCsv);
-            await ReadWeatherData();
+            ReadWeatherData();
         }
     }
-    private async Task ReadWeatherData()
+
+    private void ReadWeatherData()
     {
         List<Weather> data = new();
         ParsingErrors = new();
-        foreach(var row in GetWeatherCSV(SelectedCsv))
+        foreach(var row in GetWeatherCSV(SelectedCsv!))
         {
             try
             {
@@ -101,6 +103,8 @@ else
 }
 else
 {
+    <h4>There are @Records.Count() temperature measurements in this file.</h4>
+    <p><i>Sorting has been disabled (since it makes little sense for this kind of data).</i></p>
     if(ParsingErrors is not null && ParsingErrors.Count > 0)
     {
         <div>
@@ -114,7 +118,8 @@ else
         </div>
     }
     <QuickGrid Items="@Records">
-        <PropertyColumn Property="@(x => x.Time.ToShortTimeString())" Sortable="true" Title="Time of Measurement" />
+        <PropertyColumn Property="@(x => x.Time.ToShortDateString())" Sortable="false" Title="Date" />
+        <PropertyColumn Property="@(x => x.Time.ToShortTimeString())" Sortable="false" Title="Time of Measurement" />
         <PropertyColumn Property="@(x => x.Temperature)" Sortable="false" />
         <PropertyColumn Property="@(x => x.WindSpeed)" Sortable="false" />
         <PropertyColumn Property="@(x => x.WindChill == null ? x.Temperature : x.WindChill.FeelsLike)" Title="Wind Chill" />
