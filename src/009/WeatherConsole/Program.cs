@@ -6,6 +6,7 @@ using WeatherSystem;
 // - A flag indicating which type of data to show
 //   - -l or --location for the Location data
 //   - -w or --weather for the Weather information
+//   - -a to add weather information as a string to be parsed and appended to the file
 
 // TODO: Have "robust" parsing of the args
 string path = args[0];
