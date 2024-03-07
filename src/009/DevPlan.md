@@ -31,8 +31,8 @@ dotnet add reference ../WeatherLibrary/WeatherSystem.csproj
 
 The front end of the web application will consist of two primary pages:
 
-- **ViewHistoricalWeather.razor** which will be used to present a listing of all the data read from the file.
-- **RecordLocalWeather.razor** which will be used to enter information that can be appended to the file.
+- [**ViewHistoricalWeather.razor**](#viewhistoricalweatherrazor-component) which will be used to present a listing of all the data read from the file.
+- [**RecordLocalWeather.razor**](#recordlocalweatherrazor-component) which will be used to enter information that can be appended to the file.
 
 The `WeatherSystem` itself will consist of the following data types:
 
@@ -149,3 +149,49 @@ Here's a discussion I had with Microsoft Copilot about converting strings to and
 > Feel free to use this format for consistent and interoperable date-time representations! 🕰️📅
 
 ----
+
+## Blazor Pages
+
+To begin, let's create two Blazor components inside our `Pages` folder and name them **`ViewHistoricalWeather`** and **`RecordLocalWeather`**. Then, to ease our access to these pages, let's add some navigation links in our site, using route paths that match our component names (for ease of recognition).
+
+### `ViewHistoricalWeather.razor` Component
+
+> I'm going to use Microsoft's [QuickGrid Component](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-8.0), which means that I will need to run the following to add the NuGet package for that component.
+>
+> ```ps
+> dotnet add package Microsoft.AspNetCore.Components.QuickGrid
+> ```
+
+When it comes to viewing the historical weather, we have a few interesting concerns. The first has to do with determining the *path* for the data we need to load. Once we have the data, then we need to know how to process the *location* that the weather data relates to. Lastly, we need to deal with the *volume* of weather related data, as it may be more than what our user wants to see.
+
+#### Hosting Our Data
+
+Most of the time, we will find that our data resides in a database. In this case, by virtue of having our data inside of CSV files, we are likely to have our files on the same server that hosts our web application.
+
+Create a folder named `Data` inside of the `Website` folder. Then, place a copy of the CSV file we're using for our weather data.
+
+In our example, we will provide a drop-down for the user to select the file that holds our data.
+
+> *TODO: expand on notes*
+
+#### Location, Location, Location
+
+The first regards the *location* that the weather data relates to. We have a set of Lat./Long. values, but no "name" for the location. How will we indicate that to the user?
+
+For this, we'll make use of [**Leaflet**](https://leafletjs.com/examples/quick-start/), an open-source and free JavaScript library that leverages Open Street Map.
+
+> ~~*Instructions to follow*~~ - **Defer for later** - JsInterop can be tricky....
+
+#### Too Much Data!
+
+Our existing CSV file has over 300 rows of weather data, calibrated at an hour-by-hour set of measurements. That's way too much to show in a single table.
+
+For our purposes, we'll filter the data by presenting the user with a Date input where they can choose a specific day. In response, we'll show the hourly temperature information for that day in a nice tabular form. For a little bling, we'll even make use of some of the [Line-Awesome weather icons]().
+
+- `<i class="las la-wind"></i>`
+- `<i class="las la-temperature-high"></i>`
+- `<i class="las la-temperature-low"></i>`
+- `<i class="las la-mitten"></i>`
+
+### `RecordLocalWeather.razor` Component
+
