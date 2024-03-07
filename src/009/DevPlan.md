@@ -2,6 +2,8 @@
 
 The overall goal of this application is to present Weather data from a file and append weather recordings to the same file. To do this, we'll make use of a class library to hold the "heart" of the system and a Blazor web application to act as the front end. We'll also create a quick console front end to act as a CLI for some simple manual interactions with the system.
 
+> If you're having trouble following along with this demo project, see the [dev tips](#dev-tip-incremental-development-and-sandbox-projects) in the appendix of this document. Also, it's advised that you *journal* your development experience; writing down what you're learning and what trouble-shooting you've had to do will be a valuable resource as you progress through this course. Remember, in software development, all your learning is *cumulative*.
+
 ## Project Setup
 
 ```ps
@@ -195,3 +197,23 @@ For our purposes, we'll filter the data by presenting the user with a Date input
 
 ### `RecordLocalWeather.razor` Component
 
+----
+
+## Appendix
+
+
+### Dev Tip: Incremental Development and Sandbox Projects
+
+One important key to success when writing software is to **develop in small steps**. This is especially important when you're dealing with code/technology that is "new-to-you".
+
+This approach of small steps might take some planning. For example, in this Blazor app it makes sense to start out with your navigation system and near-empty pages for each part you have to build. This will allow you to switch back-and-forth among the pages of your system and know that they are loading properly. Next, pick a single part of just one of the pages and get it working. Don't worry about displaying or getting input for the complete data model your page is working with; just pick some small pieces of the model. If you need to temporarily hard-code values into the page in order to focus on that small part, go right ahead and do that.
+
+> When building the Blazor application, you can have the website running as you build each feature, one at a time. From the terminal, run **`dotnet watch`** to compile and launch your application. Within the terminal, you can always press <kbd>ctrl</kbd> + <kbd>r</kbd> to rebuild your application; the rebuild will effectively "reset" your web page to its first load. 
+
+If you find yourself hitting roadblocks that leave you spinning your wheels for a while, then it's probably a sign that you are either trying to get things working in chunks that are too big or that you have some misconceptions about how some parts of code/technology actually works. This is where it's helpful to create ***ultra simple* sandbox projects** to play with the technology/concept you are wrestling with. In terms of Blazor, there's a lot of under-the-hood pieces in play. If you are new to web *application* development, then create a separate Blazor app that is "bare-bones" (absolutely no styling) where you can dedicate separate pages for the individual pieces you are struggling to understand. The idea here is to **isolate the problem** that you are having. By separating your problem area from other moving parts, you have a better chance of discovering key concepts and understanding how things work.
+
+Another thing that can be helpful is to tie things back into what you are already comfortable with (which is why we're including a console app in this sample solution). The console gives a basic "proof-of-concept" for the internals of the app: Can we properly handle (parse) the data we've been supplied with? Can we read from and write to the data store?
+
+### Troubleshooting
+
+> Add your own tips, diagnosis and solutions here...
