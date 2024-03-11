@@ -362,3 +362,4 @@ time,temperature_2m (°C),wind_speed_10m (km/h),wind_gusts_10m (km/h)
 2024-02-13T21:00,NaN,NaN,NaN
 2024-02-13T22:00,NaN,NaN,NaN
 2024-02-13T23:00,NaN,NaN,NaN
+2024-03-11T09:00,-2.0,9.0,14.0
