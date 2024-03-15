@@ -12,5 +12,6 @@ TBD...
 
 ## March 6
 
+- Ask dan about the `EnterContest` and the `@onclick`: Are there other events that I can respond to.
 - The `?.` is called the "Null Propagating Operator"
 - The `??` is called the "Null Coalescing Operator"

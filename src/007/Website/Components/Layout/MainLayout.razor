@@ -1,15 +1,17 @@
 ﻿@inherits LayoutComponentBase
-
+@* Everything in this file is injected into the <body> tag*@
+@* Semantic HTML is the use of HTML tags that carry specific meaning. The use of HTML tags with specific
+purposes/meaning allows us to properly (meaningfully) describe the content of our page. *@
 <nav class="container-fluid">
     <ul>
         <li><img alt="logo" src="/icons8-internet-laces-72.png" /></li>
         <li><strong>Blazor 8</strong></li>
     </ul>
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/counter">Counter</a></li>
-        <li><a href="/weather">Weather</a></li>
-        <li><a href="#" role="button">Button</a></li>
+        <li><a href="/"><i class="las la-home"></i> Home</a></li>
+        <li><a href="/weather"><i class="las la-wind"></i> Weather</a></li>
+        <li><a href="/counter"><i class="las la-skiing-nordic"></i> Counter</a></li>
+        <li><a href="#" role="button"><i class="las la-sitemap"></i> Button</a></li>
     </ul>
 </nav>
 <main class="container">

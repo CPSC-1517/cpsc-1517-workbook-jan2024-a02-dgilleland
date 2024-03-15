@@ -8,7 +8,6 @@
 
 ## Instructor-Supplied Code Samples
 
-
 If there is a sample in your instructor's workbook that you want to pull into your own workbook, the easiest way to do that is through a Node package called [**tiged**](https://github.com/tiged/tiged#readme). Here's an example of how to use it to [grab a subdirectory](https://github.com/tiged/tiged#specify-a-subdirectory) from your instructor's workbook:
 
 ```bash
@@ -53,6 +52,8 @@ There are three things you must continually master as you go through your IT car
 
 ## Workbook Demos
 
+### :100: In-Class Demos and Practice
+
 - 000 - Course Introduction
 - 001 - VS Code, the Terminal, and Markdown
 - 002 - More Markdown
@@ -62,3 +63,7 @@ There are three things you must continually master as you go through your IT car
 - 006 - Blazor Intro
 - 007 - Blazor Empty Templates
 - 008 - HTML Form Elements in Blazor
+
+| Week | Demos :+1: |
+|:----:| ----- |
+| 1    | [000](./000/ReadMe.md), [001 Start Here](./001-StartHere/ReadMe.md), [002](./002/ReadMe.md), [003](./003/ReadMe.md) |

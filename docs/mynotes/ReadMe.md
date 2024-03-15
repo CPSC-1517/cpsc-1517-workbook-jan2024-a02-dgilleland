@@ -1,7 +1,7 @@
 # My Notes - A Journal of Discovery
 
 - [Journal](./Journal.md)
-- [Git Commands](./git-commands.md)
+- [`git` Commands](./git-commands.md)
 - [Controlled Exit](./ControlledExit.md)
 - [Class Diagrams](./ClassDiagrams.md)
 - [Terminal Commands](./dos-commands.md)

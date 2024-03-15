@@ -44,6 +44,7 @@ gantt
 
 ```
 
+----
 
 ## ![Inside This Repo](./docs/images/level.png) Inside this repository
 
