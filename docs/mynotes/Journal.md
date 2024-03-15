@@ -9,3 +9,8 @@ TBD...
 ## Week 4 | Day 2
 
 - Notes on [Class Diagrams](./ClassDiagrams.md)
+
+## March 6
+
+- The `?.` is called the "Null Propagating Operator"
+- The `??` is called the "Null Coalescing Operator"
