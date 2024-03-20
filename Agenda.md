@@ -1,13 +1,14 @@
 # Agenda
 
+[![Quick Style](./docs/images/favicon.png) Quick Style](./src/008/Docs/Styling.md) instructions for *empty Blazor projects*. 
+
 > These are my notes on what I plan to teach in each [**upcoming class**](#mar-21). For the timeline of where we are today, see [the current schedule](./README.md#schedule).
 >
 > ##### *... Warn those who are idle ..., encourage the disheartened, help the weak, be patient with everyone.*
 >
 > > My philosophy of teaching, taken from [the source](https://www.bible.com/bible/111/1TH.5.14.NIV)
 
-
-[![Quick Style](./docs/images/favicon.png) Quick Style](./src/008/Docs/Styling.md) instructions for *empty Blazor projects*. 
+----
 
 ## Code Samples
 
