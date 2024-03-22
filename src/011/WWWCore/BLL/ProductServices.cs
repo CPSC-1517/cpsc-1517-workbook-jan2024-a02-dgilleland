@@ -24,4 +24,12 @@ public class ProductServices
             .Where(p => p.CategoryId == id)
             .ToList<Product>();
     }
+
+    public List<Product> GetProducts()
+    {
+        return _context.Products
+            .Include(p => p.Supplier)
+            .Include(p => p.Category)
+            .ToList();
+    }
 }
