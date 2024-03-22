@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore; // for the .Include
 
 namespace WestWindWholesale;
+
 public class ProductServices
 {
     private readonly WestWindContext _context;
