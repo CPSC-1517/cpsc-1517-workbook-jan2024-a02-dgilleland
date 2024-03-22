@@ -158,11 +158,18 @@ To begin, let's create two Blazor components inside our `Pages` folder and name 
 
 ### `ViewHistoricalWeather.razor` Component
 
-> I'm going to use Microsoft's [QuickGrid Component](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-8.0), which means that I will need to run the following to add the NuGet package for that component.
+> I'm going to use Microsoft's [QuickGrid Component](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-8.0), which means that I will need to run the following to add the [NuGet package](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.QuickGrid) for that component.
 >
 > ```ps
 > dotnet add package Microsoft.AspNetCore.Components.QuickGrid
 > ```
+>
+> You might find you want to only install a particular verison of QuickGrid. You can specify the version of any NuGet package with the `--version` flag, as in this example:
+>
+> ```ps
+> dotnet add package Microsoft.AspNetCore.Components.QuickGrid --version 8.0.2
+> ```
+
 
 When it comes to viewing the historical weather, we have a few interesting concerns. The first has to do with determining the *path* for the data we need to load. Once we have the data, then we need to know how to process the *location* that the weather data relates to. Lastly, we need to deal with the *volume* of weather related data, as it may be more than what our user wants to see.
 
