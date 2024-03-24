@@ -10,7 +10,7 @@
 <h1>Product Catalog</h1>
 
 @code {
-    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+    PaginationState Paginator = new PaginationState { ItemsPerPage = 10 };
     private IQueryable<Product>? Catalog { get; set; }
     protected override void OnInitialized()
 
@@ -21,7 +21,7 @@
 
 <div class="page-size-chooser">
     Items per page:
-    <select @bind="@pagination.ItemsPerPage">
+    <select @bind="@Paginator.ItemsPerPage">
         <option>5</option>
         <option>10</option>
         <option>20</option>
@@ -29,13 +29,13 @@
     </select>
 </div>
 
-<QuickGrid Items="Catalog" Pagination="@pagination">
+<QuickGrid Items="Catalog" Pagination="@Paginator">
     <PropertyColumn Property="@(item => item.ProductName)" Title="Product Name" Sortable="true" />
     <PropertyColumn Property="@(item => item.UnitsOnOrder)" Align="Align.Center" Title="On Order" />
     <PropertyColumn Property="@(item => item.QuantityPerUnit)" Title="Qty/Unit" />
     <PropertyColumn Property="@(item => item.UnitPrice)" Format="c" Align="Align.Right" Title="Unit Price" Sortable="true" />
 </QuickGrid>
-<Paginator State="@pagination" />
+<Paginator State="@Paginator" />
 
 
 <style>
