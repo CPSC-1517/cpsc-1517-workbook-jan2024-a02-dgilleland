@@ -32,7 +32,7 @@ The **`Components/Pages/ProductData/Index.razor`** component should look like th
 The **`Components/Pages/ProductData/Edit.razor`** component should look like this.
 
 ```razor
-@page "/Product/Edit/{id:int?}"
+@page "/Product/Edit"
 @rendermode InteractiveServer
 
 @using WestWindWholesale
