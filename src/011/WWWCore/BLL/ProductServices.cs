@@ -1,6 +1,5 @@
 ﻿using WestWindWholesale.DAL;
 using WestWindWholesale.Models;
-using System.Linq;
 using Microsoft.EntityFrameworkCore; // for the .Include
 
 namespace WestWindWholesale;
@@ -31,5 +30,10 @@ public class ProductServices
             .Include(p => p.Supplier)
             .Include(p => p.Category)
             .ToList();
+    }
+
+    public Product? GetProduct(int productId)
+    {
+        return _context.Products.Find(productId);
     }
 }
