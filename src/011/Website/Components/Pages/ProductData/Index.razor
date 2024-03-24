@@ -3,6 +3,7 @@
 @using WestWindWholesale
 @using WestWindWholesale.Models
 @using Microsoft.AspNetCore.Components.QuickGrid
+@inject IJSRuntime JsRuntime
 @inject ProductServices ProductDbServices
 
 <PageTitle>Product Catalog</PageTitle>
@@ -17,6 +18,17 @@
     {
         Catalog = ProductDbServices.GetProducts().AsQueryable();
     }
+
+    private async Task DeleteProduct(int id, string name)
+    {
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to delete {name}?");
+        if (confirmed)
+        {
+            // Delete!
+            // Pop up an alert that it has been deleted
+            // Refresh the contents of the page/table
+        }
+    }
 }
 
 <div class="page-size-chooser">
@@ -30,6 +42,10 @@
 </div>
 
 <QuickGrid Items="Catalog" Pagination="@Paginator">
+    <TemplateColumn Title="Edit" >
+        <a href="/Product/Edit/@(context.ProductId)"><i class="las la-edit"></i></a>
+        <a @onclick="@(ev => DeleteProduct(context.ProductId, context.ProductName))"><i class="las la-trash-alt"></i></a>
+    </TemplateColumn>
     <PropertyColumn Property="@(item => item.ProductName)" Title="Product Name" Sortable="true" />
     <PropertyColumn Property="@(item => item.UnitsOnOrder)" Align="Align.Center" Title="On Order" />
     <PropertyColumn Property="@(item => item.QuantityPerUnit)" Title="Qty/Unit" />
