@@ -1,3 +1,4 @@
-# Conclusion
+# Filtered Search
 
-- Add a little formatting/organization to your edit form
+- Search by Supplier, Category, or partial product name
+  - https://aspnet.github.io/quickgridsamples/filtering

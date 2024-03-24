@@ -70,4 +70,5 @@ The following steps will guide you through all of the work to create a simple CR
 1. [Database Add](./Step-3.md)
 1. [Databaes Update](./Step-4.md)
 1. [Database Delete](./Step-5.md)
-1. [Conclusion](./Step-6.md)
+1. [Filtered Search](./Step-6.md)
+1. [Conclusion](./Step-7.md)
