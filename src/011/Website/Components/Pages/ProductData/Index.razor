@@ -1,0 +1,73 @@
+﻿@page "/Product/Index"
+@rendermode InteractiveServer
+@using WestWindWholesale
+@using WestWindWholesale.Models
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject ProductServices ProductDbServices
+
+<PageTitle>Product Catalog</PageTitle>
+
+<h1>Product Catalog</h1>
+
+@code {
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+    private IQueryable<Product>? Catalog { get; set; }
+    protected override void OnInitialized()
+
+    {
+        Catalog = ProductDbServices.GetProducts().AsQueryable();
+    }
+}
+
+<div class="page-size-chooser">
+    Items per page:
+    <select @bind="@pagination.ItemsPerPage">
+        <option>5</option>
+        <option>10</option>
+        <option>20</option>
+        <option>50</option>
+    </select>
+</div>
+
+<QuickGrid Items="Catalog" Pagination="@pagination">
+    <PropertyColumn Property="@(item => item.ProductName)" Title="Product Name" Sortable="true" />
+    <PropertyColumn Property="@(item => item.UnitsOnOrder)" Align="Align.Center" Title="On Order" />
+    <PropertyColumn Property="@(item => item.QuantityPerUnit)" Title="Qty/Unit" />
+    <PropertyColumn Property="@(item => item.UnitPrice)" Format="c" Align="Align.Right" Title="Unit Price" Sortable="true" />
+</QuickGrid>
+<Paginator State="@pagination" />
+
+
+<style>
+    .col-justify-right {
+        text-align: right;
+    }
+    .col-justify-center {
+        text-align: right;
+    }
+
+    .quickgrid button.col-title {
+        background-color: var(--pico-primary-background);
+    }
+    .quickgrid[theme=default] button.col-title:hover {
+        background-color: rgba(128, 128, 128, 0.8);
+    }
+
+    .page-size-chooser {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .page-size-chooser select {
+        margin: 0 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+</style>
+
+<blockquote>
+    <h4>Diagnostics</h4>
+    <ul>
+        <li>Product Count: @Catalog?.Count()</li>
+    </ul>
+</blockquote>

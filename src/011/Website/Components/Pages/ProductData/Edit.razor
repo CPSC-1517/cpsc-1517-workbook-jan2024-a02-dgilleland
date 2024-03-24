@@ -1,0 +1,116 @@
+﻿@page "/Product/Edit/{id:int?}"
+@rendermode InteractiveServer
+
+@using WestWindWholesale
+@using WestWindWholesale.Models
+@inject IJSRuntime JsRuntime
+@inject ProductServices ProductDbServices
+@inject CategoryServices CategoryDbServices
+@inject SupplierServices SupplierDbServices
+
+<PageTitle>Product Editor</PageTitle>
+
+<h1>Product Editor</h1>
+
+<EditForm Model="Product" FormName="ProductEditor" OnValidSubmit="SaveValidProduct">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <label>
+        Product Id (Read Only)
+        <InputNumber @bind-Value="Product.ProductId" disabled />
+    </label>
+
+    <label>
+        Product Name
+        <InputText @bind-Value="Product.ProductName" />
+    </label>
+
+    <label>
+        Supplier
+        <InputSelect @bind-Value="Product.SupplierId">
+            <option value="0">[Select a Supplier]</option>
+            @foreach(var item in Suppliers)
+            {
+                <option value="@item.SupplierId">@item.CompanyName</option>
+            }
+        </InputSelect>
+    </label>
+
+    <label>
+        Category
+        <InputSelect @bind-Value="Product.CategoryId">
+            <option value="0">[Select a Category]</option>
+            @foreach(var item in Categories)
+            {
+                <option value="@item.CategoryId">@item.CategoryName</option>
+            }
+        </InputSelect>
+    </label>
+
+    <label>
+        Quantity Per Unit
+        <InputText @bind-Value="Product.QuantityPerUnit" />
+    </label>
+
+    <label>
+        Minimum Order Quantity
+        <InputNumber @bind-Value="Product.MinimumOrderQuantity" />
+    </label>
+
+    <label>
+        Unit Price
+        <InputNumber @bind-Value="Product.UnitPrice" />
+    </label>
+
+    <label>
+        Units on Order
+        <InputNumber @bind-Value="Product.UnitsOnOrder" />
+    </label>
+
+    <label>
+        <InputCheckbox @bind-Value="Product.Discontinued" />
+        Is Discontinued
+    </label>
+
+    <button type="submit">@(Id > 0 ? "Update" : "Add")</button>
+    @if(Id > 0)
+    {
+        <button type="button" @onclick="DeleteProduct">Delete</button>
+    }
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private Product? Product { get; set; }
+    private List<Category>? Categories { get; set; }
+    private List<Supplier>? Suppliers { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if(Id > 0)
+        {
+            Product = ProductDbServices.GetProduct(Id);
+        }
+        else
+        {
+            Product = new();
+        }
+        Categories = CategoryDbServices.GetAllCategories();
+        Suppliers = SupplierDbServices.GetAllSuppliers();
+    }
+
+    private void SaveValidProduct()
+    {
+
+    }
+    private async Task DeleteProduct()
+    {
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+        if (confirmed)
+        {
+            // Delete!
+        }
+    }
+}

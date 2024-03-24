@@ -6,6 +6,8 @@
 
 This demo will walk through the steps involved for creating simple CRUD-like pages to access and modify information in the database.
 
+> *The [SQL Server Extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) for Visual Studio Code is an excellent tool by Microsoft for connecting to and interacting with databases.*
+
 ## Demo Setup
 
 Begin by installing the database from the `WestWind.bacpac` provided. [The instructions are in the `db` folder](./db/ReadMe.md). Test your installation by browsing the database contents.
