@@ -46,7 +46,13 @@
         <a href="/Product/Edit/@(context.ProductId)"><i class="las la-edit"></i></a>
         <a @onclick="@(ev => DeleteProduct(context.ProductId, context.ProductName))"><i class="las la-trash-alt"></i></a>
     </TemplateColumn>
-    <PropertyColumn Property="@(item => item.ProductName)" Title="Product Name" Sortable="true" />
+    <PropertyColumn Property="@(item => item.ProductName)" Title="Product Name" Sortable="true">
+        <ColumnOptions>
+                <div class="search-box">
+                    <input type="search" autofocus placeholder="Partial name..." />
+                </div>
+            </ColumnOptions>
+    </PropertyColumn>
     <PropertyColumn Property="@(item => item.UnitsOnOrder)" Align="Align.Center" Title="On Order" />
     <PropertyColumn Property="@(item => item.QuantityPerUnit)" Title="Qty/Unit" />
     <PropertyColumn Property="@(item => item.UnitPrice)" Format="c" Align="Align.Right" Title="Unit Price" Sortable="true" />
