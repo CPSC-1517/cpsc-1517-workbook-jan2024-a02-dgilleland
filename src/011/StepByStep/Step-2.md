@@ -46,7 +46,7 @@ protected override void OnInitialized()
 }
 ```
 
-Just to make sure everything is wired up correctly, add a little diagnostics block at the end of the page. (We can remove this when we are done creating our table.)
+Just to make sure everything is wired up correctly, add a little diagnostics block at the end of the page. (We can remove this when we are done creating our table.) View the page to see if you get a count of products in the database.
 
 ```razor
 
