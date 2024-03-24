@@ -67,26 +67,7 @@ The following steps will guide you through all of the work to create a simple CR
 
 1. [Backend Setup](./Step-1.md)
 1. [Database Read](./Step-2.md)
-1. [TBN](./Step-1.md)
-1. [TBN](./Step-1.md)
-1. [TBN](./Step-1.md)
-1. [TBN](./Step-1.md)
-1. [TBN](./Step-1.md)
-1. [TBN](./Step-1.md)
-1. [TBN](./Step-1.md)
-
-
-   1. `public List<Product> GetAllProducts()`
-1. `WestWindServices` class
-   1. `public static void WWBackendDependencies(this IServiceCollection services,
-        Action<DbContextOptionsBuilder> options)`
-        1. Add transiant for `ProductServices`
-1. `Program` and `appsettings.json`
-1. Nav & pages for ProductData list/edit
-1. List the products
-1. Add a product
-   1. Add validation to `Product`
-1. Edit a product
-1. Delete a product
-1. [Optional] Add a little formatting for your form
-
+1. [Database Add](./Step-3.md)
+1. [Databaes Update](./Step-4.md)
+1. [Database Delete](./Step-5.md)
+1. [Conclusion](./Step-6.md)
