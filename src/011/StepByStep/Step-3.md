@@ -230,6 +230,8 @@ Now it's time to save the user's input and provide some feedback. We'll also res
         {
             Id = ProductDbServices.AddProduct(Product!);
             UserFeedback = $"Product details have been added and assigned an Id of {Id}";
+            Product = new();
+            Id = 0;
         }
         catch(Exception ex)
         {
@@ -239,5 +241,7 @@ Now it's time to save the user's input and provide some feedback. We'll also res
 ```
 
 We'll also present the user feedback. Choose what you think is the most appropriate place to put the user feedback message. You might want it closer to where the user clicks the Add button, or you might want it near the top of the form. You might even want to consider some styling to make success and failure conditions more distinct for the user.
+
+The next step in our CRUD app is to support [product updates](./Step-4.md).
 
 > *:octocat: **Commit** your work now. :grey_exclamation:*

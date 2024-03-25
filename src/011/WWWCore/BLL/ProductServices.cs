@@ -44,6 +44,12 @@ public class ProductServices
         return item.ProductId;
     }
 
+    public void UpdateProduct(Product item)
+    {
+        _context.Products.Update(item);
+        _context.SaveChanges();
+    }
+
     public void DeleteProduct(int productId)
     {
         var found = _context.Products.Find(productId);
