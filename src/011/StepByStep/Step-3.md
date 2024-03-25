@@ -4,7 +4,7 @@ Let's take some observations about the data stored in the Products table. Specif
 
 ![](./ProductsTable.png)
 
-As we allow the users of our Blazor page to enter product information, they will need to supply these foreign key values. But the user should be allowed to choose those values based on *meaningful* information. There are a number of ways to approach this, but we'll take the following. We'll create two additional services to get all the available categories and suppliers.
+As we allow the users of our Blazor page to enter product information, they will need to supply these foreign key values. But the user should be allowed to choose those values based on *meaningful* information. There are a number of ways to approach this, but we'll take the approach of creating two additional services to get all the available categories and suppliers.
 
 ## More BLL Services
 
