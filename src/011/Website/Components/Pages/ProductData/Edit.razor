@@ -86,6 +86,7 @@
     private Product? Product { get; set; }
     private List<Category>? Categories { get; set; }
     private List<Supplier>? Suppliers { get; set; }
+    private string UserFeedback;
 
     protected override void OnInitialized()
     {
@@ -103,14 +104,27 @@
 
     private void SaveValidProduct()
     {
-
+        if(Id == 0)
+        {
+            Id = ProductDbServices.AddProduct(Product!);
+            UserFeedback = $"Product details have been added and assigned an Id of {Id}";
+        }
     }
     private async Task DeleteProduct()
     {
         bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
         if (confirmed)
         {
-            // Delete!
+            ProductDbServices.DeleteProduct(Product.ProductId);
         }
     }
 }
+
+
+<blockquote>
+    <h4>Diagnostics</h4>
+    <ul>
+        <li>User Feedback: "@UserFeedback"</li>
+        <li>Product Id: @Id</li>
+    </ul>
+</blockquote>

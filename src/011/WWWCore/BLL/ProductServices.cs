@@ -36,4 +36,21 @@ public class ProductServices
     {
         return _context.Products.Find(productId);
     }
+
+    public int AddProduct(Product item)
+    {
+        _context.Products.Add(item);
+        _context.SaveChanges();
+        return item.ProductId;
+    }
+
+    public void DeleteProduct(int productId)
+    {
+        var found = _context.Products.Find(productId);
+        if(found is not null)
+        {
+            _context.Products.Remove(found);
+            _context.SaveChanges();
+        }
+    }
 }

@@ -65,7 +65,7 @@ We will add more services through this method later on.
 
 ## Configuring our Services
 
-Our Blazor web application will need access to these services. Inside the `Program.cs` file, add the following lines in the context indicated.
+Our Blazor web application will need access to these services. Inside the `Program.cs` file, add the following lines in the context indicated. You will also need a `using WestWindWholesale;` at the top of `Program.cs`.
 
 ```cs
 var builder = WebApplication.CreateBuilder(args);
