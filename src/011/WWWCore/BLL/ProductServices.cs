@@ -32,6 +32,15 @@ public class ProductServices
             .ToList();
     }
 
+    public List<Product> GetProductsByProductName(string partialName)
+    {
+        return _context.Products
+            .Include(p => p.Supplier)
+            .Include(p => p.Category)
+            .Where(p => p.ProductName.Contains(partialName))
+            .ToList();
+    }
+
     public Product? GetProduct(int productId)
     {
         return _context.Products.Find(productId);

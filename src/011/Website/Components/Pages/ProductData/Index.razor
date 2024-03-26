@@ -4,6 +4,7 @@
 @using WestWindWholesale.Models
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject IJSRuntime JsRuntime
+@inject NavigationManager Navigator
 @inject ProductServices ProductDbServices
 
 <PageTitle>Product Catalog</PageTitle>
@@ -13,6 +14,8 @@
 @code {
     PaginationState Paginator = new PaginationState { ItemsPerPage = 10 };
     private IQueryable<Product>? Catalog { get; set; }
+    private string UserFeedback;
+
     protected override void OnInitialized()
 
     {
@@ -24,9 +27,29 @@
         bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to delete {name}?");
         if (confirmed)
         {
-            // Delete!
-            // Pop up an alert that it has been deleted
-            // Refresh the contents of the page/table
+            try
+            {
+                ProductDbServices.DeleteProduct(id);
+                UserFeedback = $"The product {name} has been removed from the database";
+                // Refresh the contents of the page/table
+                Catalog = ProductDbServices.GetProducts().AsQueryable();
+            }
+            catch (Exception ex)
+            {
+                UserFeedback = $"Unable to delete {name}. {ex.Message}";
+            }
+        }
+    }
+    private string? PartialProductName;
+    private void UpdateFilter()
+    {
+        if(string.IsNullOrWhiteSpace(PartialProductName))
+        {
+            Catalog = ProductDbServices.GetProducts().AsQueryable();
+        }
+        else
+        {
+            Catalog = ProductDbServices.GetProductsByProductName(PartialProductName.Trim()).AsQueryable();
         }
     }
 }
@@ -41,6 +64,11 @@
     </select>
 </div>
 
+@if(!string.IsNullOrWhiteSpace(UserFeedback))
+{
+    <blockquote>@UserFeedback</blockquote>
+}
+
 <QuickGrid Items="Catalog" Pagination="@Paginator">
     <TemplateColumn Title="Edit" >
         <a href="/Product/Edit/@(context.ProductId)"><i class="las la-edit"></i></a>
@@ -49,7 +77,7 @@
     <PropertyColumn Property="@(item => item.ProductName)" Title="Product Name" Sortable="true">
         <ColumnOptions>
                 <div class="search-box">
-                    <input type="search" autofocus placeholder="Partial name..." />
+                    <input type="search" autofocus @bind="PartialProductName" @bind:event="oninput" @bind:after="UpdateFilter" placeholder="Partial name..." />
                 </div>
             </ColumnOptions>
     </PropertyColumn>

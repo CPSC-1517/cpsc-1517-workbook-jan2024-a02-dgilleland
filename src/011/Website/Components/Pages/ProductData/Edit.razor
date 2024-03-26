@@ -125,21 +125,28 @@
         }
     }
 
-private async Task DeleteProduct()
-{
-bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
-    if (confirmed)
+    private async Task DeleteProduct()
     {
-    ProductDbServices.DeleteProduct(Product.ProductId);
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+        if (confirmed)
+        {
+            try
+            {
+                ProductDbServices.DeleteProduct(Id);
+                UserFeedback = $"The product has been removed from the database";
+            }
+            catch (Exception ex)
+            {
+                UserFeedback = $"Unable to delete the product. {ex.Message}";
+            }
+        }
     }
-    }
-    }
+}
 
-
-    <blockquote>
-        <h4>Diagnostics</h4>
-        <ul>
-            <li>User Feedback: "@UserFeedback"</li>
-            <li>Product Id: @Id</li>
-        </ul>
-    </blockquote>
+<blockquote>
+    <h4>Diagnostics</h4>
+    <ul>
+        <li>User Feedback: "@UserFeedback"</li>
+        <li>Product Id: @Id</li>
+    </ul>
+</blockquote>
