@@ -26,11 +26,18 @@
 		},
 		{
 			"path": "010"
+		},
+		{
+			"path": "Q2-Prep"
+		},
+		{
+			"path": "011"
 		}
 	],
 	"settings": {
-		"markdown.extension.orderedList.autoRenumber": true,
+		"markdown.extension.orderedList.autoRenumber": false,
 		"editor.codeLens": false,
-		"dotnet.defaultSolution": "1517-A02-Instructor/Simple_2.sln"
+		"dotnet.defaultSolution": "1517-A02-Instructor/Simple_2.sln",
+		"markdown.extension.orderedList.marker": "one"
 	}
 }
