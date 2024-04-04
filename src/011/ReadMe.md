@@ -89,6 +89,14 @@ This command creates entity classes and a `DbContext` based on the schema of you
 
 Remember to replace `{connectionString}` and `{projectName}` with your actual connection string and project name.
 
+### Grabbing Specific Tables
+
+If you want to grab only a subset of the tables in the database, you can specify which tables you want with the `--table` flag. In the following example, I'm only grabbing the `Products`, `Suppliers` and `Categories` tables.
+
+> ```bash
+> dotnet ef dbcontext scaffold "Server=.;Database=WestWind;Trusted_Connection=True;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o Models --context-dir DAL --context WestWindContext --data-annotations --table Products --table Suppliers --table Categories
+> ```
+
 ## Creating a CRUD App for WestWind Wholesale
 
 With the foundations of the project set up, it's time to move on to the [steps for creating a CRUD-based application](./StepByStep/ReadMe.md).
