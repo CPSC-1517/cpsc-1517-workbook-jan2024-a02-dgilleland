@@ -356,11 +356,11 @@ Note that each time you run this, it will overwrite the existing content in that
   - [ ] *Add*
   - [ ] *Update*
   - [ ] *Delete*
-- [ ] Edit Form for Add/Update/Delete
-- [ ] Navigating from a `<QuickGrid>`
 
 ## Apr 10
 
+- [ ] Edit Form for Add/Update/Delete
+- [ ] Navigating from a `<QuickGrid>`
 
 ## Apr 11
 
